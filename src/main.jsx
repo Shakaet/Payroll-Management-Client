@@ -11,6 +11,10 @@ import Login from './pages/Login.jsx';
 import Registered from './pages/Registered.jsx';
 import MainLayout from './layout/MainLayout.jsx';
 import AuthProvider from './provider/AuthProvider.jsx';
+import Dashboard from './layout/Dashboard.jsx';
+import AddNewEmployee from './routes/AddNewEmployee.jsx';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
@@ -31,11 +35,23 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path:"/dashboard",
+    element:<Dashboard></Dashboard>,
+    children:[
+      {
+        path:"/dashboard/addnewemployee",
+        element:<AddNewEmployee></AddNewEmployee>
+
+      }
+    ]
+  }
 ]);
 
 
 createRoot(document.getElementById('root')).render(
   <AuthProvider>
+     <ToastContainer />
     <RouterProvider router={router} />
   </AuthProvider>,
 )

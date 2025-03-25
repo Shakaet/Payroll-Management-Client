@@ -84,7 +84,7 @@ const Registered = () => {
               name:name,
               email:email,
               user_photo:res.data.data.display_url,
-              role:"user"
+              role:"employee"
 
           }
 
@@ -98,7 +98,7 @@ const Registered = () => {
               .then((result)=>{
                toast.success("Profile Updated")
               
-            axios.post("https://business-dashboard-server.vercel.app/users",usersData)
+            axios.post("http://localhost:3000/users",usersData)
             .then((res)=>{
                 if(res.data.insertedId){
                     // alert("user added")
