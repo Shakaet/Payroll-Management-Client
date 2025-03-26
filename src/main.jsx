@@ -15,6 +15,8 @@ import Dashboard from './layout/Dashboard.jsx';
 import AddNewEmployee from './routes/AddNewEmployee.jsx';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ManageEmployee from './routes/ManageEmployee.jsx';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const router = createBrowserRouter([
   {
@@ -43,15 +45,26 @@ const router = createBrowserRouter([
         path:"/dashboard/addnewemployee",
         element:<AddNewEmployee></AddNewEmployee>
 
+      },
+      {
+        path:"/dashboard/managenewemployee",
+        element:<ManageEmployee></ManageEmployee>
       }
     ]
   }
 ]);
 
+const queryClient = new QueryClient();
+
+
 
 createRoot(document.getElementById('root')).render(
-  <AuthProvider>
+  
+     <QueryClientProvider client={queryClient}>
+      <AuthProvider>
      <ToastContainer />
-    <RouterProvider router={router} />
-  </AuthProvider>,
+     <RouterProvider router={router} />
+     </AuthProvider>
+  </QueryClientProvider>
+  
 )
