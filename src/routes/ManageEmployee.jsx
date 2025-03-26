@@ -3,6 +3,7 @@ import axios from 'axios';
 import React from 'react'
 import Loading from '../component/loading';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const fetchPosts = async () => {
     const { data } = await axios.get("http://localhost:3000/allemployee");
@@ -81,9 +82,9 @@ const handleDelete = (id) => {
                 <td className="font-semibold">${job.salary}</td>
                 <td>{job.work_shift}</td>
                 <td>
-                  <button className="btn btn-sm btn-info mr-2">
+                  <Link to={`/dashboard/updateemployee/${job._id}`} className="btn btn-sm btn-info mr-2">
                     Update
-                  </button>
+                  </Link>
                   <button onClick={()=>handleDelete(job._id)} className="btn btn-sm btn-error">
                     Delete
                   </button>

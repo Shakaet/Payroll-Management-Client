@@ -17,6 +17,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ManageEmployee from './routes/ManageEmployee.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import UpdateEmployee from './component/UpdateEmployee.jsx';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path:"/dashboard/managenewemployee",
         element:<ManageEmployee></ManageEmployee>
+      },
+      {
+        path:"/dashboard/updateemployee/:id",
+        element:<UpdateEmployee></UpdateEmployee>
       }
     ]
   }
