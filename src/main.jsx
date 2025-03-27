@@ -21,6 +21,8 @@ import UpdateEmployee from './component/UpdateEmployee.jsx';
 import MyProfile from './routes/MyProfile.jsx';
 import { GrUpdate } from 'react-icons/gr';
 import UpdateProfile from './component/UpdateProfile.jsx';
+import AddendenceForm from './routes/AddendenceForm.jsx';
+import MyAttendence from './routes/MyAttendence.jsx';
 
 const router = createBrowserRouter([
   {
@@ -66,6 +68,18 @@ const router = createBrowserRouter([
 
         path:"/dashboard/updateprofile",
         element:<UpdateProfile></UpdateProfile>
+
+      },
+      {
+
+        path:"/dashboard/attendenceform",
+        element:<AddendenceForm></AddendenceForm>
+
+      },
+      {
+
+        path:"/dashboard/myattendence",
+        element:<MyAttendence></MyAttendence>
 
       }
     ]
