@@ -80,7 +80,7 @@ const handleDelete = (id) => {
                   <span className="badge badge-primary">{job.job_type}</span>
                 </td>
                 <td className="font-semibold">${job.salary}</td>
-                <td>{job.work_shift}</td>
+                <td>{job.work_Shift}</td>
                 <td>
                   <Link to={`/dashboard/updateemployee/${job._id}`} className="btn btn-sm btn-info mr-2">
                     Update

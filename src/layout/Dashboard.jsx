@@ -84,6 +84,12 @@ const Dashboard = () => {
                 {/* <FaChartLine className="text-blue-400" /> */}
                 <span>My Attendence</span>
               </Link>
+
+              <Link to="/dashboard/allattendence" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
+                {/* <FaChartLine className="text-blue-400" /> */}
+                <span>Employee's Attendence</span>
+              </Link>
+              
               
               
             </>

@@ -23,6 +23,8 @@ import { GrUpdate } from 'react-icons/gr';
 import UpdateProfile from './component/UpdateProfile.jsx';
 import AddendenceForm from './routes/AddendenceForm.jsx';
 import MyAttendence from './routes/MyAttendence.jsx';
+import EmployeesAttendence from './routes/EmployeesAttendence.jsx';
+import PrivateRoute from './routes/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -45,7 +47,7 @@ const router = createBrowserRouter([
   },
   {
     path:"/dashboard",
-    element:<Dashboard></Dashboard>,
+    element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children:[
       {
         path:"/dashboard/addnewemployee",
@@ -80,6 +82,11 @@ const router = createBrowserRouter([
 
         path:"/dashboard/myattendence",
         element:<MyAttendence></MyAttendence>
+
+      },
+      {
+        path:"/dashboard/allattendence",
+        element:<EmployeesAttendence></EmployeesAttendence>
 
       }
     ]
