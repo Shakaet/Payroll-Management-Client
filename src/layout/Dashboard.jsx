@@ -1,18 +1,22 @@
 import React, { useContext, useState } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { Context } from '../provider/AuthProvider';
+import useAdmin from '../hook/useAdmin';
+import useEmployee from '../hook/useEmployee';
+import Loading from '../component/loading';
 
 const Dashboard = () => {
 
 
   
-  let isAdmin=true
+  
 
  
 
 
   const {  signOuts } = useContext(Context);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  
 
   let nav= useNavigate()
 
@@ -25,6 +29,14 @@ const Dashboard = () => {
     nav("/login")
     
   };
+
+  let [isAdmin,adminLoading]= useAdmin()
+  let [isemployee,employeeLoading]=useEmployee()
+  console.log(isAdmin)
+
+  if(adminLoading){
+    return <Loading></Loading>
+  }
 
   
  
