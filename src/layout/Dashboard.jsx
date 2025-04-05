@@ -92,10 +92,7 @@ const Dashboard = () => {
                 {/* <FaChartLine className="text-blue-400" /> */}
                 <span>Add Attendence Form</span>
               </Link>
-              <Link to="/dashboard/myattendence" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-                {/* <FaChartLine className="text-blue-400" /> */}
-                <span>My Attendence</span>
-              </Link>
+ 
 
               <Link to="/dashboard/allattendence" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
                 {/* <FaChartLine className="text-blue-400" /> */}
@@ -107,6 +104,10 @@ const Dashboard = () => {
             </>
           ) : (
             <>
+                <Link to="/dashboard/myattendence" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
+                {/* <FaChartLine className="text-blue-400" /> */}
+                <span>My Attendence</span>
+              </Link>
               
               
 
