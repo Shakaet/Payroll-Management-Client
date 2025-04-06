@@ -18,12 +18,19 @@
     "lottie-react": "^2.4.1",
     "match-sorter": "^8.0.0",
     "react": "^19.0.0",
+    "react-awesome-slider": "^4.1.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
+    "react-id-swiper": "^4.0.0",
+    "react-parallax": "^3.5.2",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^7.4.0",
     "react-toastify": "^11.0.5",
+    "simple-parallax-js": "^6.0.1",
     "sort-by": "^1.2.0",
+    "styled-components": "^6.1.17",
     "sweetalert2": "^11.17.2",
+    "swiper": "^11.2.6",
     "tailwindcss": "^4.0.15"
   },
   "devDependencies": {
@@ -36,6 +43,7 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "sass-embedded": "^1.86.3",
     "vite": "^6.2.0"
   }
 }

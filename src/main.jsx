@@ -25,6 +25,8 @@ import AddendenceForm from './routes/AddendenceForm.jsx';
 import MyAttendence from './routes/MyAttendence.jsx';
 import EmployeesAttendence from './routes/EmployeesAttendence.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
+import AdminRoutes from './routes/AdminRoutes.jsx';
+import EmployeeRoute from './routes/EmployeeRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -51,16 +53,16 @@ const router = createBrowserRouter([
     children:[
       {
         path:"/dashboard/addnewemployee",
-        element:<AddNewEmployee></AddNewEmployee>
+        element:<AdminRoutes><AddNewEmployee></AddNewEmployee></AdminRoutes>
 
       },
       {
         path:"/dashboard/managenewemployee",
-        element:<ManageEmployee></ManageEmployee>
+        element:<AdminRoutes><ManageEmployee></ManageEmployee></AdminRoutes>
       },
       {
         path:"/dashboard/updateemployee/:id",
-        element:<UpdateEmployee></UpdateEmployee>
+        element:<AdminRoutes><UpdateEmployee></UpdateEmployee></AdminRoutes>
       },
       {
         path:"/dashboard/myprofile",
@@ -75,18 +77,18 @@ const router = createBrowserRouter([
       {
 
         path:"/dashboard/attendenceform",
-        element:<AddendenceForm></AddendenceForm>
+        element:<AdminRoutes><AddendenceForm></AddendenceForm></AdminRoutes>
 
       },
       {
 
         path:"/dashboard/myattendence",
-        element:<MyAttendence></MyAttendence>
+        element:<EmployeeRoute><MyAttendence></MyAttendence></EmployeeRoute>
 
       },
       {
         path:"/dashboard/allattendence",
-        element:<EmployeesAttendence></EmployeesAttendence>
+        element:<AdminRoutes><EmployeesAttendence></EmployeesAttendence></AdminRoutes>
 
       }
     ]

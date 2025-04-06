@@ -52,7 +52,7 @@ const MyAttendance = () => {
         <div className="flex items-center justify-center h-screen">
           <Loading />
         </div>
-      ) : attendance.length === 0 ? (
+      ) : attendance?.length === 0 ? (
         <div className="flex items-center justify-center h-screen">
           <p className="text-4xl text-red-600 font-extrabold text-center">
             No Attendance Today for You!
