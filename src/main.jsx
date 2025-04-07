@@ -27,6 +27,7 @@ import EmployeesAttendence from './routes/EmployeesAttendence.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
 import AdminRoutes from './routes/AdminRoutes.jsx';
 import EmployeeRoute from './routes/EmployeeRoute.jsx';
+import DailyUpdates from './routes/DailyUpdates.jsx';
 
 const router = createBrowserRouter([
   {
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
         path:"/dashboard/allattendence",
         element:<AdminRoutes><EmployeesAttendence></EmployeesAttendence></AdminRoutes>
 
+      },
+      {
+        path:"/dashboard/dailyupdates",
+        element:<EmployeeRoute><DailyUpdates></DailyUpdates></EmployeeRoute>
       }
     ]
   }

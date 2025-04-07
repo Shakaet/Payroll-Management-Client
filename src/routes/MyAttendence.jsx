@@ -10,6 +10,8 @@ const MyAttendance = () => {
     const { user } = useContext(Context);
     const employeeEmail = user?.email;
 
+    console.log(user)
+
     const fetchAttendance = async () => {
         const {data}  = await axios.get(`http://localhost:3000/attendance/${employeeEmail}`);
         return data;
