@@ -27,7 +27,7 @@ const DailyUpdates = () => {
     console.log(formData)
 
     try {
-      const response = await axios.post('/api/submitReport', formData);
+      const response = await axios.post('http://localhost:3000/api/submitReport', formData);
 
       if (response.status === 200) {
         alert('Report submitted successfully!');
