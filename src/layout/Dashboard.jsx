@@ -55,7 +55,7 @@ const Dashboard = () => {
       
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative w-64 bg-gray-900 text-white p-5 space-y-4 flex flex-col transition-transform duration-300 ease-in-out z-50`}
+        className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative w-64 bg-[#2D3748] text-white p-5 space-y-4 flex flex-col transition-transform duration-300 ease-in-out z-50`}
       >
         {
           isAdmin ?(
@@ -145,7 +145,7 @@ const Dashboard = () => {
         </button>
         
 
-        <h1 className={`text-4xl font-bold  font-stretch-extra-condensed  text-center  text-black  md:text-5xl lg:text-6xl bg-gradient-to-r from-blue-500 to-purple-600  bg-clip-text drop-shadow-lg`}>
+        <h1 className={`text-4xl font-bold  font-stretch-extra-condensed  text-center  text-black  md:text-5xl lg:text-6xl bg-[#EDF2F7]  bg-clip-text drop-shadow-lg`}>
            DASHBOARD
           </h1>
           

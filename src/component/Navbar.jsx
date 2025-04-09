@@ -16,7 +16,7 @@ const Navbar = () => {
   
 
   return (
-    <div className="navbar bg-blue-900 text-white shadow-lg fixed top-0 z-50">
+    <div className="navbar bg-[#1A202C] text-white shadow-lg fixed top-0 z-50">
     {/* Navbar Start */}
     <div className="navbar-start">
       <div className="dropdown">
