@@ -28,6 +28,8 @@ import PrivateRoute from './routes/PrivateRoute.jsx';
 import AdminRoutes from './routes/AdminRoutes.jsx';
 import EmployeeRoute from './routes/EmployeeRoute.jsx';
 import DailyUpdates from './routes/DailyUpdates.jsx';
+import LeaveRequest from './routes/LeaveRequest.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -95,6 +97,10 @@ const router = createBrowserRouter([
       {
         path:"/dashboard/dailyupdates",
         element:<EmployeeRoute><DailyUpdates></DailyUpdates></EmployeeRoute>
+      },
+      {
+        path:"/dashboard/livingreq",
+        element:<EmployeeRoute><LeaveRequest></LeaveRequest></EmployeeRoute>
       }
     ]
   }
