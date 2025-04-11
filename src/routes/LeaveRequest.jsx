@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
+import { Context } from '../provider/AuthProvider';
 
 const LeaveRequest = () => {
+
+  let {user}= useContext(Context)
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     reason: '',
     date: '',
+    email:user?.email,
+    status:"pending"
   });
 
   const handleChange = (e) => {
@@ -18,15 +23,17 @@ const LeaveRequest = () => {
     // console.log(formData)
 
     try {
-      const response = await axios.post('/api/leave-request', formData);
+      const response = await axios.post('http://localhost:3000/api/leave-request', formData);
 
       toast.success('Leave request sent to admin!');
+      alert("pass")
       setIsOpen(false);
       setFormData({ reason: '', date: '' });
     } catch (error) {
       const errorMessage =
         error.response?.data?.message || 'Failed to send leave request';
       toast.error(errorMessage);
+      alert("failed")
     }
   };
 
