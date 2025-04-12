@@ -29,6 +29,7 @@ import AdminRoutes from './routes/AdminRoutes.jsx';
 import EmployeeRoute from './routes/EmployeeRoute.jsx';
 import DailyUpdates from './routes/DailyUpdates.jsx';
 import LeaveRequest from './routes/LeaveRequest.jsx';
+import LeaveApplication from './routes/LeaveApplication.jsx';
 
 
 const router = createBrowserRouter([
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
         path:"/dashboard/allattendence",
         element:<AdminRoutes><EmployeesAttendence></EmployeesAttendence></AdminRoutes>
 
+      },
+      {
+        path:"/dashboard/leaveaplication",
+        element:<AdminRoutes><LeaveApplication></LeaveApplication></AdminRoutes>
       },
       {
         path:"/dashboard/dailyupdates",
