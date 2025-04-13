@@ -33,6 +33,7 @@ const LeaveRequest = () => {
       const errorMessage =
         error.response?.data?.message || 'Failed to send leave request';
       toast.error(errorMessage);
+      // console.log(errorMessage)
       alert("failed")
     }
   };

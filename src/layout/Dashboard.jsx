@@ -76,9 +76,9 @@ const Dashboard = () => {
             <span>Dashboard Home</span>
           </Link>
        
-          {/* Conditional Links for Admin and User */}
-          {isAdmin ? (
-            <>
+         
+
+          {isAdmin &&   <>
               
               <Link to="/dashboard/addnewemployee" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
                 {/* <FaChartLine className="text-blue-400" /> */}
@@ -98,12 +98,16 @@ const Dashboard = () => {
                 {/* <FaChartLine className="text-blue-400" /> */}
                 <span>Employee's Attendence</span>
               </Link>
+              <Link to="/dashboard/leaveaplication" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
+                {/* <FaChartLine className="text-blue-400" /> */}
+                <span>Leaving Application</span>
+              </Link>
               
               
               
-            </>
-          ) : (
-            <>
+            </>}
+
+            {isemployee &&  <>
                 <Link to="/dashboard/myattendence" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
                 {/* <FaChartLine className="text-blue-400" /> */}
                 <span>My Attendence</span>
@@ -122,8 +126,7 @@ const Dashboard = () => {
               
               
 
-            </>
-          )}
+            </>}
 
           {/* Common Links */}
           <Link to="/dashboard/myprofile" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
