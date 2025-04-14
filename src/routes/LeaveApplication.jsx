@@ -1,8 +1,66 @@
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import React from 'react'
 
+
+const fetchUsers = async () => {
+  const response = await axios.get(`http://localhost:3000/api/leave-request`);
+  return response.data;
+};
+
+
 const LeaveApplication = () => {
+
+  const { data: leaveReqData = [], isLoading:leaveReqLoading } = useQuery({
+    queryKey: ["leaveReqData"], // The unique key for this query
+    queryFn: fetchUsers, // Function to fetch the data
+  });
+
+
   return (
     <div>
+
+<div className="overflow-x-auto p-4">
+      <h2 className="text-2xl font-bold text-center mb-4">Employee's Leave Request</h2>
+      <div className="overflow-x-auto">
+        <table className="table w-full rounded-2xl">
+          <thead>
+            <tr className="bg-gray-200">
+              <th>Email</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody className="bg-gray-400">
+            {leaveReqData.map((item) => (
+              <tr key={item._id} className="">
+                <td className="font-semibold">{item.email}</td>
+                <td>{new Date(item.date).toLocaleDateString()}</td>
+                <td>
+                  <select
+                    value={item.status}
+                    onChange={(e) => handleStatusChange(item._id, e.target.value)}
+                    className="select select-bordered select-sm w-full max-w-xs"
+                  >
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                  </select>
+                </td>
+                <td>
+                  <button
+                    onClick={() => handleDelete(item._id)}
+                    className="btn btn-sm btn-error"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     
     
