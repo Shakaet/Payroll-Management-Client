@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../provider/AuthProvider';
 
 
 const fetchUsers = async () => {
@@ -11,10 +12,28 @@ const fetchUsers = async () => {
 
 const LeaveApplication = () => {
 
-  const { data: leaveReqData = [], isLoading:leaveReqLoading } = useQuery({
+
+  
+
+
+  const { data: leaveReqData = [], isLoading:leaveReqLoading,refetch } = useQuery({
     queryKey: ["leaveReqData"], // The unique key for this query
     queryFn: fetchUsers, // Function to fetch the data
   });
+
+  // Handle status update
+  const handleStatusChange = async (id, newStatus,email) => {
+    try {
+      await axios.patch(`http://localhost:3000/api/data/${id}?email=${email}`, { status: newStatus }); // Replace with your PATCH endpoint
+
+      alert("Request Updated Successful")
+      refetch()
+      
+     
+    } catch (error) {
+      console.error('Error updating status:', error);
+    }
+  };
 
 
   return (
@@ -40,7 +59,7 @@ const LeaveApplication = () => {
                 <td>
                   <select
                     value={item.status}
-                    onChange={(e) => handleStatusChange(item._id, e.target.value)}
+                    onChange={(e) => handleStatusChange(item._id, e.target.value,item?.email)}
                     className="select select-bordered select-sm w-full max-w-xs"
                   >
                     <option value="pending">Pending</option>
