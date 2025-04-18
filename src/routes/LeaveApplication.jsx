@@ -36,6 +36,23 @@ const LeaveApplication = () => {
   };
 
 
+  let handleDelete=async(id)=>{
+
+    try {
+      await axios.delete(`http://localhost:3000/api/leave-request/${id}`);
+      alert("Request Deleted Successfully");
+      refetch();
+    } catch (error) {
+      console.error('Error deleting request:', error);
+      alert("Failed to delete request");
+    }
+
+
+
+
+  }
+
+
   return (
     <div>
 
