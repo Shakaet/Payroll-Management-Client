@@ -84,6 +84,7 @@ const Dashboard = () => {
                 {/* <FaChartLine className="text-blue-400" /> */}
                 <span>Add new Employee</span>
               </Link>
+              
               <Link to="/dashboard/managenewemployee" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
                 {/* <FaChartLine className="text-blue-400" /> */}
                 <span>Manage Employee</span>
@@ -97,6 +98,10 @@ const Dashboard = () => {
               <Link to="/dashboard/allattendence" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
                 {/* <FaChartLine className="text-blue-400" /> */}
                 <span>Employee's Attendence</span>
+              </Link>
+              <Link to="/dashboard/addTask" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
+                {/* <FaChartLine className="text-blue-400" /> */}
+                <span>Add Task</span>
               </Link>
               <Link to="/dashboard/leaveaplication" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
                 {/* <FaChartLine className="text-blue-400" /> */}
