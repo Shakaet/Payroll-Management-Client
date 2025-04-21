@@ -1,8 +1,9 @@
+import axios from 'axios';
 import React from 'react'
 
 export const AddTask = () => {
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // Placeholder for form submission logic
     const formData = {
@@ -10,8 +11,20 @@ export const AddTask = () => {
       taskTitle: e.target.taskTitle.value,
       taskDescription: e.target.taskDescription.value,
       dueDate: e.target.dueDate.value,
+      status:"pending"
     };
-    console.log(formData)
+    // console.log(formData)
+
+    try {
+        await axios.post("http://localhost:3000/addtask",formData);
+        Swal.fire("Success", "Attendance added successfully", "success");
+    } catch (error) {
+        Swal.fire("Error", error.response.data.message || "Failed to add attendance", "error");
+    }
+
+
+
+
     
    
 };
