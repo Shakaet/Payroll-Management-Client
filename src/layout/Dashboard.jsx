@@ -103,6 +103,10 @@ const Dashboard = () => {
                 {/* <FaChartLine className="text-blue-400" /> */}
                 <span>Add Task</span>
               </Link>
+              <Link to="/dashboard/managetask" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
+                {/* <FaChartLine className="text-blue-400" /> */}
+                <span>Manage Task</span>
+              </Link>
               <Link to="/dashboard/leaveaplication" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
                 {/* <FaChartLine className="text-blue-400" /> */}
                 <span>Leaving Application</span>
@@ -116,6 +120,10 @@ const Dashboard = () => {
                 <Link to="/dashboard/myattendence" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
                 {/* <FaChartLine className="text-blue-400" /> */}
                 <span>My Attendence</span>
+              </Link>
+              <Link to="/dashboard/myTask" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
+                {/* <FaChartLine className="text-blue-400" /> */}
+                <span>My Task</span>
               </Link>
 
               <Link to="/dashboard/dailyupdates" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">

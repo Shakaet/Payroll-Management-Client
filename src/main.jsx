@@ -31,6 +31,10 @@ import DailyUpdates from './routes/DailyUpdates.jsx';
 import LeaveRequest from './routes/LeaveRequest.jsx';
 import LeaveApplication from './routes/LeaveApplication.jsx';
 import { AddTask } from './routes/AddTask.jsx';
+import { MyTask } from './routes/MyTask.jsx';
+import ManageTask from './routes/ManageTask.jsx';
+import ContactUs from './component/ContactUs.jsx';
+import AboutUs from './component/AboutUs.jsx';
 
 
 const router = createBrowserRouter([
@@ -41,6 +45,14 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home></Home>
+      },
+      {
+        path:"/contactus",
+        element:<ContactUs></ContactUs>
+      },
+      {
+        path:"/aboutus",
+        element:<AboutUs></AboutUs>
       },
       {
         path:"/login",
@@ -105,13 +117,21 @@ const router = createBrowserRouter([
         element:<AdminRoutes><AddTask></AddTask></AdminRoutes>
       },
       {
+        path:"/dashboard/managetask",
+        element:<AdminRoutes><ManageTask></ManageTask></AdminRoutes>
+      },
+      {
         path:"/dashboard/dailyupdates",
         element:<EmployeeRoute><DailyUpdates></DailyUpdates></EmployeeRoute>
       },
       {
         path:"/dashboard/livingreq",
         element:<EmployeeRoute><LeaveRequest></LeaveRequest></EmployeeRoute>
-      }
+      },
+      {
+        path:"/dashboard/myTask",
+        element:<EmployeeRoute><MyTask></MyTask></EmployeeRoute>
+      },
     ]
   }
 ]);

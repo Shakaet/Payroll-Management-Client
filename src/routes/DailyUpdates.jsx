@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Context } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const DailyUpdates = () => {
 
@@ -30,7 +31,11 @@ const DailyUpdates = () => {
       const response = await axios.post('http://localhost:3000/api/submitReport', formData);
 
       if (response.status === 200) {
-        alert('Report submitted successfully!');
+        Swal.fire({
+          title: "Daily Update Report sent Successfully!",
+          text: "You clicked the button!",
+          icon: "success"
+        });
         setFormData({
           tasksCompleted: '',
           hoursWorked: '',

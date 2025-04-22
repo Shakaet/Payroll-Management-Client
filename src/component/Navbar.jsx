@@ -49,10 +49,17 @@ const Navbar = () => {
           </li>
   
           <>
+          <li>
+              <Link to="/contactus" className="text-white hover:text-gray-300 font-bold">Contact Us</Link>
+            </li>
+            <li>
+              <Link to="/aboutus" className="text-white hover:text-gray-300 transition-colors duration-200 font-bold">About Us</Link>
+            </li>
             
             <li>
               <Link to="/dashboard" className="text-white hover:text-gray-300">Dashboard</Link>
             </li>
+            
             
           </>
         </ul>
@@ -71,10 +78,18 @@ const Navbar = () => {
         
   
         <>
+        <li>
+              <Link to="/contactus" className="text-white hover:text-gray-300 transition-colors duration-200 font-bold">Contact Us</Link>
+            </li>
+            <li>
+              <Link to="/aboutus" className="text-white hover:text-gray-300 transition-colors duration-200 font-bold">About Us</Link>
+            </li>
          
           <li>
             <Link to="/dashboard" className="text-white font-semibold hover:text-gray-300 transition-colors duration-200">Dashboard</Link>
           </li>
+
+          
           
       
         </>
