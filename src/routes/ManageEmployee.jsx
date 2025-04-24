@@ -81,13 +81,16 @@ const handleDelete = (id) => {
                 </td>
                 <td className="font-semibold">${job.salary}</td>
                 <td>{job.work_Shift}</td>
-                <td>
+                <td className='flex'>
                   <Link to={`/dashboard/updateemployee/${job._id}`} className="btn btn-sm btn-info mr-2">
                     Update
                   </Link>
                   <button onClick={()=>handleDelete(job._id)} className="btn btn-sm btn-error">
                     Delete
                   </button>
+                  <Link to={`/dashboard/employee/${job._id}`}  className="btn btn-sm btn-warning ms-2">
+                    Pay
+                  </Link>
                 </td>
               </tr>
             ))}

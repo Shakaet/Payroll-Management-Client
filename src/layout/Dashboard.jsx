@@ -4,6 +4,20 @@ import { Context } from '../provider/AuthProvider';
 import useAdmin from '../hook/useAdmin';
 import useEmployee from '../hook/useEmployee';
 import Loading from '../component/loading';
+import { FaChartLine, FaHome, FaUser } from "react-icons/fa";
+import { IoHomeSharp } from "react-icons/io5";
+import { IoLogOut } from "react-icons/io5";
+import { MdAttribution } from "react-icons/md";
+import { MdTaskAlt } from "react-icons/md";
+import { MdOutlineBrowserUpdated } from "react-icons/md";
+import { IoIosPersonAdd } from "react-icons/io";
+import { MdManageAccounts } from "react-icons/md";
+import { MdBookmarkAdded } from "react-icons/md";
+import { MdAddTask } from "react-icons/md";
+import { SiManageiq } from "react-icons/si";
+import { RiSecurePaymentLine } from "react-icons/ri";
+
+
 
 const Dashboard = () => {
 
@@ -72,7 +86,7 @@ const Dashboard = () => {
         
 
           <Link to="/dashboard" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-            {/* <FaHome className="text-yellow-400" /> */}
+            <FaHome className="text-yellow-400" />
             <span>Dashboard Home</span>
           </Link>
        
@@ -81,35 +95,39 @@ const Dashboard = () => {
           {isAdmin &&   <>
               
               <Link to="/dashboard/addnewemployee" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-                {/* <FaChartLine className="text-blue-400" /> */}
+                <IoIosPersonAdd  className="text-blue-400" />
                 <span>Add new Employee</span>
               </Link>
               
               <Link to="/dashboard/managenewemployee" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-                {/* <FaChartLine className="text-blue-400" /> */}
+                <MdManageAccounts className="text-blue-400" />
                 <span>Manage Employee</span>
               </Link>
               <Link to="/dashboard/attendenceform" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-                {/* <FaChartLine className="text-blue-400" /> */}
+              <MdBookmarkAdded className="text-blue-400" />
                 <span>Add Attendence Form</span>
               </Link>
  
 
               <Link to="/dashboard/allattendence" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-                {/* <FaChartLine className="text-blue-400" /> */}
+              <MdAttribution className="text-blue-400" />
                 <span>Employee's Attendence</span>
               </Link>
               <Link to="/dashboard/addTask" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-                {/* <FaChartLine className="text-blue-400" /> */}
+              <MdAddTask className="text-blue-400" />
                 <span>Add Task</span>
               </Link>
               <Link to="/dashboard/managetask" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-                {/* <FaChartLine className="text-blue-400" /> */}
+                <SiManageiq  className="text-blue-400" />
                 <span>Manage Task</span>
               </Link>
               <Link to="/dashboard/leaveaplication" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-                {/* <FaChartLine className="text-blue-400" /> */}
+                <FaChartLine className="text-blue-400" />
                 <span>Leaving Application</span>
+              </Link>
+              <Link to="/dashboard/paymentHistory" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
+                <RiSecurePaymentLine className="text-blue-400" />
+                <span>Payment History</span>
               </Link>
               
               
@@ -118,21 +136,21 @@ const Dashboard = () => {
 
             {isemployee &&  <>
                 <Link to="/dashboard/myattendence" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-                {/* <FaChartLine className="text-blue-400" /> */}
+                <MdAttribution className="text-blue-400" />
                 <span>My Attendence</span>
               </Link>
               <Link to="/dashboard/myTask" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-                {/* <FaChartLine className="text-blue-400" /> */}
+                <MdTaskAlt className="text-blue-400" />
                 <span>My Task</span>
               </Link>
 
               <Link to="/dashboard/dailyupdates" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-                {/* <FaChartLine className="text-blue-400" /> */}
+                <MdOutlineBrowserUpdated className="text-blue-400" />
                 <span>Daily Updates</span>
               </Link>
 
               <Link to="/dashboard/livingreq" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-                {/* <FaChartLine className="text-blue-400" /> */}
+                <FaChartLine className="text-blue-400" />
                 <span> Leave Request</span>
               </Link>
               
@@ -143,15 +161,15 @@ const Dashboard = () => {
 
           {/* Common Links */}
           <Link to="/dashboard/myprofile" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-            {/* <FaUser className="text-purple-400" /> */}
+            <FaUser className="text-purple-400" />
             <span>My Profile</span>
           </Link>
           <Link to="/" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-            {/* <AiFillHome className="text-purple-400" /> */}
+            <IoHomeSharp className="text-purple-400" />
             <span>Home</span>
           </Link>
           <button onClick={handleLogout} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
-            {/* <RiLogoutBoxFill className="text-purple-400" /> */}
+            <IoLogOut className="text-purple-400" />
             <span>Logout</span>
           </button>
         </nav>

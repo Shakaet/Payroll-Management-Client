@@ -35,6 +35,10 @@ import { MyTask } from './routes/MyTask.jsx';
 import ManageTask from './routes/ManageTask.jsx';
 import ContactUs from './component/ContactUs.jsx';
 import AboutUs from './component/AboutUs.jsx';
+import DashboardHome from './routes/DashboardHome.jsx';
+import SpecificEmployee from './routes/Specificemployee.jsx';
+import Specificemployee from './routes/Specificemployee.jsx';
+import PaymentHistory from './routes/PaymentHistory.jsx';
 
 
 const router = createBrowserRouter([
@@ -68,6 +72,12 @@ const router = createBrowserRouter([
     path:"/dashboard",
     element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children:[
+
+      {
+        path:"/dashboard",
+        element:<DashboardHome></DashboardHome>
+
+      },
       {
         path:"/dashboard/addnewemployee",
         element:<AdminRoutes><AddNewEmployee></AddNewEmployee></AdminRoutes>
@@ -121,6 +131,16 @@ const router = createBrowserRouter([
         element:<AdminRoutes><ManageTask></ManageTask></AdminRoutes>
       },
       {
+        path:"/dashboard/employee/:id",
+        element:<AdminRoutes><Specificemployee></Specificemployee></AdminRoutes>
+
+      },
+      {
+        path:"/dashboard/paymentHistory",
+        element:<AdminRoutes><PaymentHistory></PaymentHistory></AdminRoutes>
+
+      },
+      {
         path:"/dashboard/dailyupdates",
         element:<EmployeeRoute><DailyUpdates></DailyUpdates></EmployeeRoute>
       },
@@ -132,6 +152,7 @@ const router = createBrowserRouter([
         path:"/dashboard/myTask",
         element:<EmployeeRoute><MyTask></MyTask></EmployeeRoute>
       },
+      
     ]
   }
 ]);
