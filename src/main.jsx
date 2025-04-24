@@ -39,6 +39,7 @@ import DashboardHome from './routes/DashboardHome.jsx';
 import SpecificEmployee from './routes/Specificemployee.jsx';
 import Specificemployee from './routes/Specificemployee.jsx';
 import PaymentHistory from './routes/PaymentHistory.jsx';
+import MyPayment from './routes/MyPayment.jsx';
 
 
 const router = createBrowserRouter([
@@ -151,6 +152,10 @@ const router = createBrowserRouter([
       {
         path:"/dashboard/myTask",
         element:<EmployeeRoute><MyTask></MyTask></EmployeeRoute>
+      },
+      {
+        path:"/dashboard/myPaymentHistory",
+        element:<EmployeeRoute><MyPayment></MyPayment></EmployeeRoute>
       },
       
     ]

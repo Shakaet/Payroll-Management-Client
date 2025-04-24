@@ -153,6 +153,10 @@ const Dashboard = () => {
                 <FaChartLine className="text-blue-400" />
                 <span> Leave Request</span>
               </Link>
+              <Link to="/dashboard/myPaymentHistory" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
+                <MdTaskAlt className="text-blue-400" />
+                <span>My Payment History</span>
+              </Link>
               
               
               
