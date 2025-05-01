@@ -1,12 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React from 'react'
+import useAxios from '../hook/useAxios';
 
 const PaymentHistory = () => {
 
 
+  let axiosInstance= useAxios()
+
+
     const fetchUsers = async () => {
-        const response = await axios.get(`http://localhost:3000/allpaymentHistory`);
+        const response = await axiosInstance.get(`/allpaymentHistory`);
         return response.data;
       };
 
