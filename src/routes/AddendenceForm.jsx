@@ -1,14 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAxios from "../hook/useAxios";
 
 const AttendenceForm = () => {
     const [email, setEmail] = useState("");
+    let axiosInstance= useAxios()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:3000/attendance", { employeeEmail: email });
+            await axiosInstance.post("/attendance", { employeeEmail: email });
             Swal.fire("Success", "Attendance added successfully", "success");
         } catch (error) {
             Swal.fire("Error", error.response.data.message || "Failed to add attendance", "error");

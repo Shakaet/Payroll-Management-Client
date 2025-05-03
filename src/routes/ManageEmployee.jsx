@@ -4,13 +4,17 @@ import React from 'react'
 import Loading from '../component/loading';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import useAxios from '../hook/useAxios';
 
-const fetchPosts = async () => {
-    const { data } = await axios.get("http://localhost:3000/allemployee");
-    return data;
-  };
+
 
 const ManageEmployee = () => {
+
+  let axiosInstance= useAxios()
+  const fetchPosts = async () => {
+    const { data } = await axiosInstance.get("/allemployee");
+    return data;
+  };
 
 
     const { data:employess, isLoading,refetch } = useQuery({

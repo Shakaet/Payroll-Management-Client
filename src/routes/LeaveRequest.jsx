@@ -2,8 +2,10 @@ import { useContext, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { Context } from '../provider/AuthProvider';
+import useAxios from '../hook/useAxios';
 
 const LeaveRequest = () => {
+  let axiosInstance= useAxios()
 
   let {user}= useContext(Context)
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +25,7 @@ const LeaveRequest = () => {
     // console.log(formData)
 
     try {
-      const response = await axios.post('http://localhost:3000/api/leave-request', formData);
+      const response = await axiosInstance.post('/api/leave-request', formData);
 
       toast.success('Leave request sent to admin!');
       alert("pass")
