@@ -3,8 +3,11 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import Swal from 'sweetalert2';
 import { Context } from '../provider/AuthProvider';
+import useAxios from '../hook/useAxios';
 
 const CheckoutForm = ({salary,email}) => {
+
+  let axiosInstance= useAxios()
 
 
 
@@ -21,7 +24,7 @@ const CheckoutForm = ({salary,email}) => {
   useEffect(()=>{
 
     if(salary>0){
-      axios.post("http://localhost:3000/createPaymentIntent",{price:salary})
+      axiosInstance.post("/createPaymentIntent",{price:salary})
     .then(res=>{
         console.log(res.data.clientSecret)
         setclientSecret(res.data.clientSecret)
@@ -30,7 +33,7 @@ const CheckoutForm = ({salary,email}) => {
     }
 
     
-  },[salary])
+  },[salary,axiosInstance])
 
   const handleSubmit = async (event) => {
     // Block native form submission.
@@ -102,7 +105,7 @@ const CheckoutForm = ({salary,email}) => {
           }
 
 
-          let res=await axios.post("http://localhost:3000/payments",PaymentItem)
+          let res=await axiosInstance.post("/payments",PaymentItem)
            console.log(res.data)
         //    refetch()
            

@@ -6,15 +6,18 @@ import CheckoutForm from '../component/CheckoutForm';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import useAxios from '../hook/useAxios';
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_key);
 
 const Specificemployee = () => {
   let {id}=useParams()
 
+  let axiosInstance= useAxios()
+
 
 
   const fetchUsers = async () => {
-    const response = await axios.get(`http://localhost:3000/allemployee/${id}`);
+    const response = await axiosInstance.get(`/allemployee/${id}`);
     return response.data;
   };
 
