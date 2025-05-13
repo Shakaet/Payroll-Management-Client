@@ -16,6 +16,15 @@ import useAdminCount from '../hook/useAdminCount';
 import useUser from '../hook/useUser';
 import useTask from '../hook/useTask';
 import useemployeeCount from '../hook/useemployeeCount';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
+
+
+
+const fetchUsers = async () => {
+        const response = await axios.get(`http://localhost:3000/paymentDetails`);
+        return response.data;
+      };
 
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -25,6 +34,24 @@ const DashboardHome = () => {
   let [admin] = useAdminCount();
   let [users] = useUser();
   let [task] = useTask();
+
+   const { data: paymentSalary = []} = useQuery({
+        queryKey: ["paymentSalary"], // The unique key for this query
+        queryFn: fetchUsers, // Function to fetch the data
+      });
+
+      
+
+let salaryArray = paymentSalary.map(salary => salary.price);
+
+let totalSalary = 0;
+for (let salary of salaryArray) {
+  totalSalary += parseInt(salary, 10); 
+}
+console.log(totalSalary);
+
+
+
 
   // Animation variants for cards
   const cardVariants = {
