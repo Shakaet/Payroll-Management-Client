@@ -84,6 +84,12 @@ console.log(totalSalary);
       icon: '📋',
       color: 'bg-orange-600',
     },
+    {
+      title: 'Total Salary Pay',
+      value: totalSalary,
+      icon: '💳',
+      color: 'bg-yellow-600',
+    },
   ];
 
   // Prepare data for the user role bar chart
@@ -200,7 +206,7 @@ console.log(totalSalary);
           >
             Dashboard Overview
           </motion.h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {dashboardData.map((card, index) => (
               <motion.div
                 key={index}
@@ -217,7 +223,7 @@ console.log(totalSalary);
                     <h3 className="text-lg font-semibold">{card.title}</h3>
                     <span className="text-3xl">{card.icon}</span>
                   </div>
-                  <p className="text-3xl font-bold">{card.value}</p>
+                  <p className="text-3xl font-bold">{card.value} ৳</p>
                 </div>
                 <div className="absolute bottom-0 right-0 w-24 h-24 bg-white opacity-10 rounded-tl-full"></div>
               </motion.div>
