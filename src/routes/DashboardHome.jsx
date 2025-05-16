@@ -10,8 +10,6 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-
-
 import useAdminCount from '../hook/useAdminCount';
 import useUser from '../hook/useUser';
 import useTask from '../hook/useTask';
@@ -19,12 +17,10 @@ import useemployeeCount from '../hook/useemployeeCount';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
-
-
 const fetchUsers = async () => {
-        const response = await axios.get(`http://localhost:3000/paymentDetails`);
-        return response.data;
-      };
+  const response = await axios.get(`http://localhost:3000/paymentDetails`);
+  return response.data;
+};
 
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -35,23 +31,16 @@ const DashboardHome = () => {
   let [users] = useUser();
   let [task] = useTask();
 
-   const { data: paymentSalary = []} = useQuery({
-        queryKey: ["paymentSalary"], // The unique key for this query
-        queryFn: fetchUsers, // Function to fetch the data
-      });
+  const { data: paymentSalary = [] } = useQuery({
+    queryKey: ["paymentSalary"],
+    queryFn: fetchUsers,
+  });
 
-      
-
-let salaryArray = paymentSalary.map(salary => salary.price);
-
-let totalSalary = 0;
-for (let salary of salaryArray) {
-  totalSalary += parseInt(salary, 10); 
-}
-console.log(totalSalary);
-
-
-
+  let salaryArray = paymentSalary.map(salary => salary.price);
+  let totalSalary = 0;
+  for (let salary of salaryArray) {
+    totalSalary += parseInt(salary, 10);
+  }
 
   // Animation variants for cards
   const cardVariants = {
@@ -86,7 +75,7 @@ console.log(totalSalary);
     },
     {
       title: 'Total Salary Pay',
-      value: totalSalary,
+      value: `${totalSalary} ৳`,
       icon: '💳',
       color: 'bg-yellow-600',
     },
@@ -108,7 +97,7 @@ console.log(totalSalary);
       {
         label: 'User Roles',
         data: [roleCounts.admin, roleCounts.employee],
-        backgroundColor: ['rgba(34, 197, 94, 0.6)', 'rgba(168, 85, 247, 0.6)'], // Green for admins, Purple for employees
+        backgroundColor: ['rgba(34, 197, 94, 0.6)', 'rgba(168, 85, 247, 0.6)'],
         borderColor: ['rgba(34, 197, 94, 1)', 'rgba(168, 85, 247, 1)'],
         borderWidth: 1,
       },
@@ -159,7 +148,7 @@ console.log(totalSalary);
       {
         label: 'Task Status',
         data: [taskStatusCounts.complete, taskStatusCounts.pending],
-        backgroundColor: ['rgba(34, 197, 94, 0.6)', 'rgba(234, 179, 8, 0.6)'], // Green for complete, Yellow for pending
+        backgroundColor: ['rgba(34, 197, 94, 0.6)', 'rgba(234, 179, 8, 0.6)'],
         borderColor: ['rgba(34, 197, 94, 1)', 'rgba(234, 179, 8, 1)'],
         borderWidth: 1,
       },
@@ -194,6 +183,55 @@ console.log(totalSalary);
     },
   };
 
+  // Prepare data for the employee salary bar chart
+  const salaryByEmployee = paymentSalary.reduce((acc, payment) => {
+    const email = payment.rec_email;
+    const amount = parseInt(payment.price, 10);
+    acc[email] = (acc[email] || 0) + amount;
+    return acc;
+  }, {});
+
+  const salaryChartData = {
+    labels: Object.keys(salaryByEmployee),
+    datasets: [
+      {
+        label: 'Total Salary Paid',
+        data: Object.values(salaryByEmployee),
+        backgroundColor: 'rgba(59, 130, 246, 0.6)', // Blue for salary
+        borderColor: 'rgba(59, 130, 246, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const salaryChartOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Employee Salary Distribution',
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: 'Salary (৳)',
+        },
+      },
+      x: {
+        title: {
+          display: true,
+          text: 'Employee Email',
+        },
+      },
+    },
+  };
+
   return (
     <div>
       <section className="py-8 bg-gray-100 min-h-screen">
@@ -223,7 +261,7 @@ console.log(totalSalary);
                     <h3 className="text-lg font-semibold">{card.title}</h3>
                     <span className="text-3xl">{card.icon}</span>
                   </div>
-                  <p className="text-3xl font-bold">{card.value} ৳</p>
+                  <p className="text-3xl font-bold">{card.value}</p>
                 </div>
                 <div className="absolute bottom-0 right-0 w-24 h-24 bg-white opacity-10 rounded-tl-full"></div>
               </motion.div>
@@ -245,6 +283,14 @@ console.log(totalSalary);
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <Bar data={taskChartData} options={taskChartOptions} />
+            </motion.div>
+            <motion.div
+              className="bg-white p-6 rounded-lg shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <Bar data={salaryChartData} options={salaryChartOptions} />
             </motion.div>
           </div>
         </div>
