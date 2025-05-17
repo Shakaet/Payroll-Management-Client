@@ -129,6 +129,7 @@ const Dashboard = () => {
                 <RiSecurePaymentLine className="text-blue-400" />
                 <span>Payment History</span>
               </Link>
+             
               
               
               
@@ -156,6 +157,10 @@ const Dashboard = () => {
               <Link to="/dashboard/myPaymentHistory" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
                 <MdTaskAlt className="text-blue-400" />
                 <span>My Payment History</span>
+              </Link>
+               <Link to="/dashboard/adreview" onClick={closeSidebar} className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-700 transition">
+                <RiSecurePaymentLine className="text-blue-400" />
+                <span>Add Review</span>
               </Link>
               
               
