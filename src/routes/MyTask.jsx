@@ -35,7 +35,7 @@ export const MyTask = () => {
       };
 
 
-
+     
 
 
       const isPastDue = (dueDate) => {
@@ -43,6 +43,17 @@ export const MyTask = () => {
         const taskDueDate = new Date(dueDate);
         return currentDate > taskDueDate;
       };
+
+       if(!mytask  || Object.keys(mytask).length === 0){
+      return <div className="flex items-center justify-center h-screen">
+      <p className="text-4xl md:text-6xl font-extrabold text-center text-pink-600 shadow-lg px-6 py-4 rounded-2xl bg-white/80 backdrop-blur-md">
+        No Task Today for You!
+      </p>
+    </div>
+
+       }
+
+      
     
     
     

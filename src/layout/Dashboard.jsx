@@ -186,20 +186,20 @@ const Dashboard = () => {
       
 
       {/* Main Content */}
-      <div className={`flex-1 p-5  bg-[#275a7d]   `}>
+      <div className={`flex-1 bg-[#191D26]`}>
         {/* Mobile Menu Button */}
         <button onClick={toggleSidebar} className="md:hidden mb-4 p-2 bg-gray-900 text-white rounded-md">
           {isSidebarOpen ? "Close Menu" : "Open Menu"}
         </button>
         
 
-        <h1 className={`text-4xl font-bold  font-stretch-extra-condensed  text-center  text-black  md:text-5xl lg:text-6xl bg-[#EDF2F7]  bg-clip-text drop-shadow-lg`}>
+        {/* <h1 className={`text-4xl font-bold  font-stretch-extra-condensed  text-center  text-black  md:text-5xl lg:text-6xl bg-[#EDF2F7]  bg-clip-text drop-shadow-lg`}>
            DASHBOARD
-          </h1>
+          </h1> */}
           
           
 
-        <div className="mt-4  w-full p-5 rounded-lg">
+        <div className=" w-full p-2 rounded-lg">
           <Outlet />
         </div>
         

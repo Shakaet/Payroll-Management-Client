@@ -41,6 +41,7 @@ import Specificemployee from './routes/Specificemployee.jsx';
 import PaymentHistory from './routes/PaymentHistory.jsx';
 import MyPayment from './routes/MyPayment.jsx';
 import AddReview from './routes/AddReview.jsx';
+import EmployeesReviews from './component/EmployeesReviews.jsx';
 
 
 const router = createBrowserRouter([
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path:"/aboutus",
         element:<AboutUs></AboutUs>
+      },
+      {
+        path:"/reviews",
+        element:<EmployeesReviews></EmployeesReviews>
       },
       {
         path:"/login",

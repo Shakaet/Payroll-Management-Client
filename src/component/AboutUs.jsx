@@ -69,7 +69,7 @@ const AboutUs = () => {
           animate="visible"
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">About Payroll</h2>
+         <h1 className="text-4xl font-extrabold text-center mb-10 text-gray-800">About Payroll</h1>
           <p className="text-lg text-gray-600">
             At PayrollPro, we’re transforming the way businesses manage payroll. Founded in 2015, our mission is to
             provide secure, efficient, and user-friendly payroll solutions that save time and ensure compliance. Trusted
