@@ -53,31 +53,31 @@ const DashboardHome = () => {
       title: 'Total Users',
       value: users.length,
       icon: '👥',
-      color: 'bg-blue-600',
+      color: '',
     },
     {
       title: 'Total Admins',
       value: admin.length,
       icon: '🛡️',
-      color: 'bg-green-600',
+      color: '',
     },
     {
       title: 'Total Employees',
       value: employee.length,
       icon: '💼',
-      color: 'bg-purple-600',
+      color: '',
     },
     {
       title: 'Total Tasks',
       value: task.length,
       icon: '📋',
-      color: 'bg-orange-600',
+      color: '',
     },
     {
       title: 'Total Salary Pay',
       value: `${totalSalary} ৳`,
       icon: '💳',
-      color: 'bg-yellow-600',
+      color: '',
     },
   ];
 
@@ -234,10 +234,10 @@ const DashboardHome = () => {
 
   return (
     <div>
-      <section className="py-8 bg-gray-100 min-h-screen">
+      <section className="py-2 min-h-screen">
         <div className="container mx-auto px-4">
           <motion.h2
-            className="text-3xl font-bold text-gray-900 mb-8 text-center"
+            className="text-3xl font-bold text-white mb-8 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -248,22 +248,22 @@ const DashboardHome = () => {
             {dashboardData.map((card, index) => (
               <motion.div
                 key={index}
-                className={`relative ${card.color} text-white p-6 rounded-lg shadow-lg overflow-hidden transform transition-all hover:shadow-xl`}
+                className={`relative ${card.color} text-yellow-200 font-extrabold p-6 rounded-lg shadow-lg overflow-hidden transform transition-all hover:shadow-xl`}
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black opacity-20"></div>
+                <div className="absolute inset-0 bg-yellow-800 bg-opacity-50  opacity-20"></div>
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-lg font-semibold">{card.title}</h3>
-                    <span className="text-3xl">{card.icon}</span>
+                    {/* <span className="text-xs">{card.icon}</span> */}
                   </div>
                   <p className="text-3xl font-bold">{card.value}</p>
                 </div>
-                <div className="absolute bottom-0 right-0 w-24 h-24 bg-white opacity-10 rounded-tl-full"></div>
+                <div className="absolute bg-white opacity-10 rounded-tl-full"></div>
               </motion.div>
             ))}
           </div>

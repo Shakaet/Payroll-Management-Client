@@ -71,13 +71,28 @@ const Dashboard = () => {
       <div
         className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative w-64 bg-[#2D3748] text-white p-5 space-y-4 flex flex-col transition-transform duration-300 ease-in-out z-50`}
       >
+
+        
         {
+          isAdmin && <h2 className="text-3xl font-semibold text-center text-yellow-400">Admin Panel</h2>
+          
+        }
+
+        {
+          isemployee &&  <h2 className="text-2xl font-semibold text-center text-yellow-400">Employee Panel</h2>
+        }
+        {
+        !isAdmin && !isemployee && (
+        <h2 className="text-3xl font-semibold text-center text-yellow-400">User Panel</h2>
+         )}
+
+        {/* {
           isAdmin ?(
             <h2 className="text-3xl font-semibold text-center text-yellow-400">Admin Panel</h2>
           ) : (
             <h2 className="text-3xl font-semibold text-center text-yellow-400">User Panel</h2>
           )
-        }
+        } */}
         <hr />
         
         
