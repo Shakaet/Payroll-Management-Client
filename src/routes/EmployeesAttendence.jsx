@@ -23,7 +23,7 @@ const EmployeesAttendence = () => {
     
   return (
     <div className="overflow-x-auto p-4">
-      <h2 className="text-2xl font-bold text-center mb-4">Employee Attendance</h2>
+      <h2 className="text-2xl font-bold text-center mb-4 text-white">Employee Attendance</h2>
       <div className="overflow-x-auto">
         <table className="table w-full rounded-4xl">
           <thead>

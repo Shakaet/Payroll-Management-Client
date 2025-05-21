@@ -234,40 +234,38 @@ const DashboardHome = () => {
 
   return (
     <div>
-      <section className="py-2 min-h-screen">
+      <section className="py-2 min-h-screen bg-gray-100">
         <div className="container mx-auto px-4">
           <motion.h2
-            className="text-3xl font-bold text-white mb-8 text-center"
+            className="text-3xl font-bold text-gray-800 mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Dashboard Overview 
+            Dashboard Overview
           </motion.h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
             {dashboardData.map((card, index) => (
               <motion.div
                 key={index}
-                className={`relative ${card.color} text-yellow-200 font-extrabold p-6 rounded-lg shadow-lg overflow-hidden transform transition-all hover:shadow-xl`}
+                className={`relative ${index === 0 ? 'bg-green-500' : index === 1 ? 'bg-orange-500' : index === 2 ? 'bg-blue-600' : index === 3 ? 'bg-red-500' : 'bg-gray-500'} text-white p-4 rounded-lg shadow-lg overflow-hidden transform transition-all hover:shadow-xl`}
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="absolute inset-0 bg-yellow-800 bg-opacity-50  opacity-20"></div>
-                <div className="relative z-10">
-                  <div className="flex items-center justify-between mb-4">
+                <div className="relative z-10 flex items-center justify-between">
+                  <div>
                     <h3 className="text-lg font-semibold">{card.title}</h3>
-                    {/* <span className="text-xs">{card.icon}</span> */}
+                    <p className="text-2xl font-bold">{card.value}</p>
                   </div>
-                  <p className="text-3xl font-bold">{card.value}</p>
+                  
                 </div>
-                <div className="absolute bg-white opacity-10 rounded-tl-full"></div>
               </motion.div>
             ))}
           </div>
-          <div className="mt-12 space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             <motion.div
               className="bg-white p-6 rounded-lg shadow-lg"
               initial={{ opacity: 0, y: 20 }}
@@ -284,14 +282,18 @@ const DashboardHome = () => {
             >
               <Bar data={taskChartData} options={taskChartOptions} />
             </motion.div>
+          </div>
+          <div className="w-1/2 mx-auto gap-4">
             <motion.div
-              className="bg-white p-6 rounded-lg shadow-lg"
+              className="bg-white border border-2 text-white p-6 rounded-lg shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <Bar data={salaryChartData} options={salaryChartOptions} />
+               <Bar data={salaryChartData} options={salaryChartOptions} />
+             
             </motion.div>
+           
           </div>
         </div>
       </section>

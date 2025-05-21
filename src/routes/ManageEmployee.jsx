@@ -58,7 +58,7 @@ const handleDelete = (id) => {
     
   return (
     <div className="overflow-x-auto p-4">
-      <h2 className="text-2xl font-bold text-center mb-4">Employees Listings</h2>
+      <h2 className="text-2xl font-bold text-center mb-4 text-white">Employees Listings</h2>
       <div className="overflow-x-auto">
         <table className="table w-full rounded-4xl">
           <thead>
@@ -84,7 +84,7 @@ const handleDelete = (id) => {
                   <span className="badge badge-primary">{job.job_type}</span>
                 </td>
                 <td className="font-semibold">${job.salary}</td>
-                <td>{job.work_Shift}</td>
+                <td>{job.work_shift}</td>
                 <td className='flex'>
                   <Link to={`/dashboard/updateemployee/${job._id}`} className="btn btn-sm btn-info mr-2">
                     Update

@@ -137,6 +137,7 @@ const Navbar = () => {
   //     )}
   //   </div>
   // </div>
+  
    <AnimatedNavbar user={user} handleLogout={handleLogout} />
   )
 }

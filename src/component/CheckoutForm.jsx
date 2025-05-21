@@ -4,10 +4,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import Swal from 'sweetalert2';
 import { Context } from '../provider/AuthProvider';
 import useAxios from '../hook/useAxios';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutForm = ({salary,email}) => {
 
   let axiosInstance= useAxios()
+
+  let nav= useNavigate()
 
 
 
@@ -115,7 +118,7 @@ const CheckoutForm = ({salary,email}) => {
               icon: "success",
               draggable: true
             });
-            // nav("/dashboard/paymentHistory")
+            nav("/dashboard/paymentHistory")
             
             
            }

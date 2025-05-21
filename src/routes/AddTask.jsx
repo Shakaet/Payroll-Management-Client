@@ -1,8 +1,11 @@
 import axios from 'axios';
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 export const AddTask = () => {
+
+    let nav=useNavigate()
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -19,6 +22,7 @@ export const AddTask = () => {
     try {
         await axios.post("http://localhost:3000/addtask",formData);
         Swal.fire("Success", "Attendance added successfully", "success");
+        nav("/dashboard/managetask")
     } catch (error) {
         Swal.fire("Error", error.response.data.message || "Failed to add attendance", "error");
     }

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 let image_hosting_key=import.meta.env.VITE_image_Hosting_key
@@ -7,6 +8,8 @@ let image_hosting_key=import.meta.env.VITE_image_Hosting_key
 let image_hosting_API =`https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
 const AddNewEmployee = () => {
+
+  let link= useNavigate()
 
 
 
@@ -71,6 +74,8 @@ const AddNewEmployee = () => {
             // Now, send user data to your database
             await axios.post("http://localhost:3000/addemployees", usersData);
             toast.success("Employee added successfully!");
+            link("/dashboard/managenewemployee")
+            
       
             // Reset form fields
             setFormData({

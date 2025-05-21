@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React, { useContext } from 'react'
 import { Context } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const fetchUsers = async () => {
@@ -25,8 +26,13 @@ const LeaveApplication = () => {
   const handleStatusChange = async (id, newStatus,email) => {
     try {
       await axios.patch(`http://localhost:3000/api/data/${id}?email=${email}`, { status: newStatus }); // Replace with your PATCH endpoint
-
-      alert("Request Updated Successful")
+      
+          Swal.fire({
+          title: "Updated!",
+          text: "Request Updated Successful!",
+          icon: "success"
+        });
+      
       refetch()
       
      
@@ -43,8 +49,8 @@ const LeaveApplication = () => {
       alert("Request Deleted Successfully");
       refetch();
     } catch (error) {
-      console.error('Error deleting request:', error);
-      alert("Failed to delete request");
+      // console.error('Error deleting request:', error);
+      // alert("Failed to delete request");
     }
 
 
@@ -57,7 +63,7 @@ const LeaveApplication = () => {
     <div>
 
 <div className="overflow-x-auto p-4">
-      <h2 className="text-2xl font-bold text-center mb-4">Employee's Leave Request</h2>
+      <h2 className="text-2xl font-bold text-center mb-4 text-white">Employee's Leave Request</h2>
       <div className="overflow-x-auto">
         <table className="table w-full rounded-2xl">
           <thead>
