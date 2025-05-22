@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import img1 from "../assets/ceo.jpg"
 import img2 from "../assets/coojpg.jpg"
 import img3 from "../assets/cto.jpg"
+import { Context } from '../provider/AuthProvider';
 
 // Animation variants for elements
 const sectionVariants = {
@@ -16,6 +17,8 @@ const cardVariants = {
 };
 
 const AboutUs = () => {
+
+   let {darkmode}=useContext(Context)
   // Core values data
   const values = [
     {
@@ -59,7 +62,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50 mt-10">
+    <section className={`py-16 ${darkmode ?"bg-black text-white":"bg-gray-50"}  mt-10`}>
       <div className="container mx-auto px-4">
         {/* Company Overview */}
         <motion.div

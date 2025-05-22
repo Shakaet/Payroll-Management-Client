@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Context } from '../provider/AuthProvider';
 
 const Banner = () => {
   // Hero Banner Auto-Sliding State
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  let {darkmode}= useContext(Context)
 
   const slides = [
     {
@@ -157,7 +160,7 @@ const Banner = () => {
       </section>
 
       {/* 2. Features Overview */}
-      <section className="py-16 bg-white">
+      <section className={`py-16 ${darkmode ? "bg-black text-white":""} `}>
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our Payroll System?</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -171,7 +174,7 @@ const Banner = () => {
                 transition={{ delay: index * 0.2 }}
               >
                 <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <h3 className={`text-xl font-semibold mb-2 ${darkmode ? "text-black":""}`}>{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
               </motion.div>
             ))}
@@ -180,7 +183,7 @@ const Banner = () => {
       </section>
 
       {/* 3. How It Works */}
-      <section className="py-16 bg-gray-100">
+      <section className={`py-16  ${darkmode ? "bg-black text-white":""}`}>
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
           <div className="flex flex-col md:flex-row justify-between gap-8">
@@ -203,7 +206,7 @@ const Banner = () => {
       </section>
 
       {/* 4. Testimonials */}
-      <section className="py-16 bg-white">
+      <section className={`py-16 ${darkmode ?"bg-black text-white":"bg-white"} `}>
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -217,7 +220,7 @@ const Banner = () => {
                 transition={{ delay: index * 0.2 }}
               >
                 <p className="text-gray-600 italic mb-4">"{testimonial.quote}"</p>
-                <p className="font-semibold">{testimonial.name}</p>
+                <p className="font-semibold text-gray-400">{testimonial.name}</p>
                 <p className="text-gray-500">{testimonial.company}</p>
               </motion.div>
             ))}
@@ -226,7 +229,7 @@ const Banner = () => {
       </section>
 
       {/* 5. Pricing Teaser */}
-      <section className="py-16 bg-gray-100">
+      <section className={`py-16  ${darkmode ?"bg-black text-white":"bg-white"}`}>
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Simple, Transparent Pricing</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -239,11 +242,11 @@ const Banner = () => {
                 animate="visible"
                 transition={{ delay: index * 0.2 }}
               >
-                <h3 className="text-2xl font-semibold mb-4">{plan.name}</h3>
+                <h3 className="text-2xl font-semibold mb-4 text-gray-600">{plan.name}</h3>
                 <p className="text-3xl font-bold text-blue-600 mb-4">{plan.price}</p>
-                <ul className="text-gray-600 mb-6">
+                <ul className=" mb-6">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="mb-2">✔ {feature}</li>
+                    <li key={i} className="mb-2 text-gray-600">✔ {feature}</li>
                   ))}
                 </ul>
                 <a
@@ -263,7 +266,7 @@ const Banner = () => {
     
 
       {/* 7. Trust Badges & Statistics */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className={`py-16 ${darkmode ?"bg-black text-white": "bg-gradient-to-r from-blue-600 to-blue-800 text-white"}`}>
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Trusted by Businesses Worldwide</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -285,7 +288,7 @@ const Banner = () => {
       </section>
 
       {/* 8. Call-to-Action Footer */}
-      <section className="py-16 bg-blue-600 text-white text-center">
+      <section className={`py-16 ${darkmode ?"bg-black text-white":"bg-blue-600 text-white"} text-center`}>
         <div className="container mx-auto px-4">
           <motion.h2
             className="text-3xl font-bold mb-4"

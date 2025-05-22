@@ -13,6 +13,8 @@ const AuthProvider = ({children}) => {
     let [user,setUser]=useState(null)
     const [loading,setLoading] = useState(true);
 
+    let [darkmode,setdarkmode]=useState(true)
+
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
     const provider = new GoogleAuthProvider();
@@ -96,6 +98,14 @@ const AuthProvider = ({children}) => {
     }
   }, [theme]);
 
+
+
+  let handleMode=()=>{
+    setdarkmode(!darkmode)
+  }
+
+  
+
     
         let val= {
              createRegistered,
@@ -106,7 +116,9 @@ const AuthProvider = ({children}) => {
              user,
              loading,
              theme,
-             toggleTheme
+             toggleTheme,
+             handleMode,
+             darkmode
     
         }
     

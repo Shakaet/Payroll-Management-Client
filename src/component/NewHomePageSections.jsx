@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Context } from '../provider/AuthProvider';
 
 const NewHomePageSections = () => {
   // Customer Success Stories Carousel State
   const [currentStory, setCurrentStory] = useState(0);
+
+  let {darkmode}=useContext(Context)
 
   const successStories = [
     {
@@ -50,7 +53,7 @@ const NewHomePageSections = () => {
   return (
     <>
       {/* 1. Customer Success Stories Section */}
-      <section className="py-16 bg-white">
+      <section className={`py-16 ${darkmode?"bg-black text-white":""} `}>
         <div className="container mx-auto px-4">
           <motion.h2
             className="text-3xl font-bold text-center mb-12"
@@ -79,7 +82,7 @@ const NewHomePageSections = () => {
                       className="w-full md:w-1/2 h-64 object-cover"
                     />
                     <div className="p-6 md:w-1/2">
-                      <h3 className="text-xl font-semibold mb-2">{story.title}</h3>
+                      <h3 className="text-xl font-semibold mb-2 text-yellow-500">{story.title}</h3>
                       <p className="text-gray-600 mb-4">{story.description}</p>
                       <p className="font-semibold text-blue-600">{story.company}</p>
                     </div>
@@ -103,7 +106,7 @@ const NewHomePageSections = () => {
       </section>
 
       {/* 2. Free Trial Signup Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className={`py-16  ${darkmode ? "bg-black text-white":"bg-gradient-to-r from-blue-600 to-blue-800 text-white"} `}>
         <div className="container mx-auto px-4 text-center">
           <motion.h2
             className="text-3xl font-bold mb-4"

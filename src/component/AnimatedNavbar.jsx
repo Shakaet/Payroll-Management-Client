@@ -3,8 +3,14 @@ import { motion } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
 import { Tooltip } from "react-tooltip";
 import 'react-tooltip/dist/react-tooltip.css';
+import sun from "../assets/sun.svg"
+import moon from "../assets/moon.svg"
+import { useContext } from "react";
+import { Context } from "../provider/AuthProvider";
 
 const AnimatedNavbar = ({ user, handleLogout }) => {
+
+  let {darkmode, handleMode}= useContext(Context)
   return (
     <motion.div 
       className="navbar fixed top-0 z-50 bg-gradient-to-r from-[#1A202C] to-[#2D3748] text-white shadow-xl px-4 py-2"
@@ -46,6 +52,7 @@ const AnimatedNavbar = ({ user, handleLogout }) => {
               <li><Link to="/aboutus" className="hover:text-blue-300">About Us</Link></li>
               <li><Link to="/reviews" className="hover:text-blue-300">All Reviews</Link></li>
               <li><Link to="/dashboard" className="hover:text-blue-300">Dashboard</Link></li>
+              
             </Fade>
           </ul>
         </div>
@@ -65,6 +72,7 @@ const AnimatedNavbar = ({ user, handleLogout }) => {
             <li><Link to="/aboutus" className="hover:text-blue-300 transition">About Us</Link></li>
             <li><Link to="/reviews" className="hover:text-blue-300 transition">All Reviews</Link></li>
             <li><Link to="/dashboard" className="hover:text-blue-300 transition">Dashboard</Link></li>
+            
           </Fade>
         </ul>
       </div>
@@ -109,7 +117,13 @@ const AnimatedNavbar = ({ user, handleLogout }) => {
             Login
           </Link>
         )}
+       
       </div>
+       <button onClick={handleMode} className="absolute top-96 right-10 text-3xl ">
+        {
+          darkmode ? <li><img src={sun}></img></li>:<li><img src={moon}></img></li>
+        }
+       </button>
     </motion.div>
   );
 };
