@@ -1,9 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React from 'react'
+import React, { useContext } from 'react'
 import { motion } from 'framer-motion';
+import { Context } from '../provider/AuthProvider';
 
 const EmployeesReviews = () => {
+
+   let {darkmode}=useContext(Context)
 
     const fetchUsers = async () => {
         const response = await axios.get(`http://localhost:3000/api/review`);
@@ -18,6 +21,8 @@ const EmployeesReviews = () => {
 
 
 const StarRating = ({ rating }) => {
+
+
   const stars = [1, 2, 3, 4, 5];
   return (
     <div className="flex text-yellow-400">
@@ -39,8 +44,8 @@ const StarRating = ({ rating }) => {
     <div>
 
 
-     <div className="min-h-screen bg-gradient-to-r from-purple-50 to-blue-50 py-12 px-6 mt-10">
-      <h1 className="text-4xl font-extrabold text-center mb-10 text-gray-800">Employee Reviews</h1>
+     <div className={`min-h-screen ${darkmode ?"bg-black text-white":"bg-gradient-to-r from-purple-50 to-blue-50"} py-12 px-6 mt-10`}>
+      <h1 className={`text-4xl font-extrabold text-center mb-10 ${darkmode ? "text-white":"text-gray-900"}`}>Employee Reviews</h1>
       
       <div className="max-w-7xl mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {reviews.map(({ title, rating, description, recommend, name, photo }, idx) => (
@@ -67,7 +72,7 @@ const StarRating = ({ rating }) => {
 
             <p className="text-gray-700 flex-grow">{description}</p>
 
-            <p className="mt-4 font-medium text-sm">
+            <p className="mt-4 font-medium text-sm text-gray-900">
               Recommend:{" "}
               <span
                 className={`${

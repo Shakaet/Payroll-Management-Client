@@ -72,8 +72,8 @@ const AboutUs = () => {
           animate="visible"
           transition={{ duration: 0.5 }}
         >
-         <h1 className="text-4xl font-extrabold text-center mb-10 text-gray-800">About Payroll</h1>
-          <p className="text-lg text-gray-600">
+         <h1 className={`text-4xl font-extrabold text-center mb-10 ${darkmode ? "text-white":"text-gray-800"} `}>About Payroll</h1>
+          <p className={`text-lg ${darkmode ? "text-white":"text-gray-600"} `}>
             At PayrollPro, we’re transforming the way businesses manage payroll. Founded in 2015, our mission is to
             provide secure, efficient, and user-friendly payroll solutions that save time and ensure compliance. Trusted
             by over 10,000 businesses worldwide, we combine innovative technology with exceptional support to empower
@@ -84,7 +84,7 @@ const AboutUs = () => {
         {/* Core Values */}
         <div className="mb-16">
           <motion.h3
-            className="text-2xl font-semibold text-center text-gray-900 mb-8"
+            className={`text-2xl font-semibold text-center ${darkmode ? "text-white":"text-gray-900"}  mb-8`}
             variants={sectionVariants}
             initial="hidden"
             animate="visible"
@@ -113,7 +113,7 @@ const AboutUs = () => {
         {/* Team Showcase */}
         <div>
           <motion.h3
-            className="text-2xl font-semibold text-center text-gray-900 mb-8"
+            className={`text-2xl font-semibold text-center ${darkmode ? "text-white":"text-gray-900"} mb-8`}
             variants={sectionVariants}
             initial="hidden"
             animate="visible"

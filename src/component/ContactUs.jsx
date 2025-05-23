@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Context } from '../provider/AuthProvider';
 
 // Animation variants for elements
 const cardVariants = {
@@ -8,6 +9,7 @@ const cardVariants = {
 };
 
 const ContactUs = () => {
+   let {darkmode}=useContext(Context)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,7 +29,7 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="py-16 bg-gray-100 mt-10">
+    <section className={`py-16  ${darkmode ? "bg-black text-white":"bg-gray-100"} mt-10`}>
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-3xl font-bold text-center mb-12 text-gray-900"
@@ -35,7 +37,7 @@ const ContactUs = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-         <h1 className="text-4xl font-extrabold text-center mb-10 text-gray-800">Contact Us</h1>
+         <h1 className={`text-4xl font-extrabold text-center mb-10 ${darkmode ? "text-white":"text-gray-800"}`}>Contact Us</h1>
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Contact Form */}
@@ -58,8 +60,9 @@ const ContactUs = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 placeholder-gray-500 dark:placeholder-gray-400 border-black dark:border-gray-600"
                   placeholder="Your Name"
+                  
                   required
                 />
               </div>
@@ -73,7 +76,7 @@ const ContactUs = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 placeholder-gray-500 dark:placeholder-gray-400 border-black dark:border-gray-600"
                   placeholder="Your Email"
                   required
                 />
@@ -87,7 +90,7 @@ const ContactUs = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 placeholder-gray-500 dark:placeholder-gray-400 border-black dark:border-gray-600`}
                   placeholder="Your Message"
                   rows="5"
                   required
@@ -114,8 +117,8 @@ const ContactUs = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Get in Touch</h3>
-              <ul className="space-y-3 text-gray-700">
+              <h3 className={`text-xl font-semibold mb-4 ${darkmode ? "text-white":"text-gray-900"}`}>Get in Touch</h3>
+              <ul className={`space-y-3 ${darkmode ? "text-white":"text-gray-900"}`}>
                 <li className="flex items-center">
                   <span className="mr-2">📧</span>
                   <a href="mailto:support@payrollpro.com" className="hover:text-blue-600 transition">
