@@ -59,7 +59,7 @@ const handleDelete = (id) => {
   return (
     <div className="overflow-x-auto p-4">
       <h2 className="text-2xl font-bold text-center mb-4 text-white">Employees Listings</h2>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto rounded-2xl">
         <table className="table w-full rounded-4xl">
           <thead>
             <tr className="bg-gray-200">

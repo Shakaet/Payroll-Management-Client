@@ -44,15 +44,15 @@ const DailyUpdates = () => {
           remarks: '',
         });
       } else {
-        alert('Error submitting report');
+        // alert('Error submitting report');
       }
     } catch (error) {
-      alert('Error submitting report');
+      // alert('Error submitting report');
     }
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-2xl mx-auto p-6 bg-white rounded-2xl shadow-md">
       <h2 className="text-center text-2xl font-semibold mb-6">Daily Report</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

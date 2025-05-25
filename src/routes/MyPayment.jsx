@@ -74,8 +74,8 @@ const MyPayment = () => {
 
 
 <div className="overflow-x-auto p-4">
-          <h2 className="text-2xl font-bold text-center mb-4">Transaction Listings</h2>
-          <div className="overflow-x-auto">
+          <h2 className="text-2xl font-bold text-center mb-4 text-white">Transaction Listings</h2>
+          <div className="overflow-x-auto rounded-2xl">
             <table className="w-full rounded-2xl">
               <thead>
                 <tr className="bg-gray-200">

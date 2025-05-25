@@ -3,6 +3,8 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { Context } from '../provider/AuthProvider';
 import useAxios from '../hook/useAxios';
+import Swal from 'sweetalert2';
+
 
 const LeaveRequest = () => {
   let axiosInstance= useAxios()
@@ -28,7 +30,12 @@ const LeaveRequest = () => {
       const response = await axiosInstance.post('/api/leave-request', formData);
 
       toast.success('Leave request sent to admin!');
-      alert("pass")
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Sent successfully',
+      });
+
       setIsOpen(false);
       setFormData({ reason: '', date: '' });
     } catch (error) {
@@ -36,7 +43,12 @@ const LeaveRequest = () => {
         error.response?.data?.message || 'Failed to send leave request';
       toast.error(errorMessage);
       // console.log(errorMessage)
-      alert("failed")
+      Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        });
+
     }
   };
 

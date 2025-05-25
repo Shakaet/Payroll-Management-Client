@@ -234,7 +234,7 @@ const DashboardHome = () => {
 
   return (
     <div>
-      <section className="py-2 min-h-screen bg-gray-100">
+      <section className="py-2 min-h-screen bg-gray-100 rounded-2xl">
         <div className="container mx-auto px-4">
           <motion.h2
             className="text-3xl font-bold text-gray-800 mb-6"
@@ -267,7 +267,7 @@ const DashboardHome = () => {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             <motion.div
-              className="bg-white p-6 rounded-lg shadow-lg"
+              className="bg-white  border-black border-2 p-6 rounded-lg shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -275,7 +275,7 @@ const DashboardHome = () => {
               <Bar data={userChartData} options={userChartOptions} />
             </motion.div>
             <motion.div
-              className="bg-white p-6 rounded-lg shadow-lg"
+              className="bg-white  border-black border-2 p-6 rounded-lg shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -285,7 +285,7 @@ const DashboardHome = () => {
           </div>
           <div className="w-1/2 mx-auto gap-4">
             <motion.div
-              className="bg-white border border-2 text-white p-6 rounded-lg shadow-lg"
+              className="bg-white border-black border-2 text-white p-6 rounded-lg shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}

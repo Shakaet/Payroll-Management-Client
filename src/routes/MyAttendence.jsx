@@ -48,7 +48,7 @@ const MyAttendance = () => {
 
     return (
       <div className="overflow-x-auto p-4">
-      <h2 className="text-2xl font-bold text-center mb-4">Attendance Status</h2>
+      <h2 className="text-2xl font-bold text-center mb-4 text-white">Attendance Status</h2>
     
       {isLoading ? (
         <div className="flex items-center justify-center h-screen">
@@ -61,7 +61,7 @@ const MyAttendance = () => {
           </p>
         </div>
       ) : (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto rounded-2xl">
           <table className="table w-full rounded-4xl">
             <thead>
               <tr className="bg-gray-200">
