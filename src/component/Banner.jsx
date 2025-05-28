@@ -201,14 +201,15 @@ const Banner = () => {
       <Parallax blur={{ min: -15, max: 15 }} bgImage={bg} bgImageAlt="Hero Background" strength={300}>
         <div className="min-h-screen flex items-center justify-center relative">
           <div className="absolute inset-0 bg-black/60 z-10" />
+          
           <div className="relative z-20">
             
               <section className=" py-16 px-4 md:px-20 text-white  opacity-110">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl text-center font-bold mb-10 text-indigo-400" data-aos="fade-up">
-          Integrated With Powerful Tools
+        <h2 className="text-3xl  sm:text-4xl md:text-5xl text-center font-bold mb-10 text-indigo-400" data-aos="fade-up">
+          Integrated  With  Tools
         </h2>
       
-       <Marquee speed={180} gradient={false} pauseOnHover>
+       <Marquee speed={250} gradient={false} pauseOnHover>
   {icons.map((IconComponent, i) => (
     <div 
       key={i} 

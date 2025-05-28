@@ -72,7 +72,7 @@ const Dashboard = () => {
       
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative w-64 bg-[#2D3748] text-white p-5 space-y-4 flex flex-col transition-transform duration-300 ease-in-out z-50`}
+        className={`fixed overflow-y-scroll inset-y-0 left-0 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative w-64 bg-[#2D3748] text-white p-5 space-y-4 flex flex-col transition-transform duration-300 ease-in-out z-50`}
       >
 
         
