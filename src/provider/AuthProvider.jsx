@@ -54,7 +54,7 @@ const AuthProvider = ({children}) => {
                   if(currentUser){
                     let user={email:currentUser?.email}
         
-                    axios.post("http://localhost:3000/jwt",user,{withCredentials:true})
+                    axios.post("https://payroll-management-system-server.vercel.app/jwt",user,{withCredentials:true})
                     .then(res=>{
 
                       // console.log(res.data)
@@ -64,7 +64,7 @@ const AuthProvider = ({children}) => {
                    }
         
                    else{
-                    axios.post("http://localhost:3000/logout",{},{withCredentials:true})
+                    axios.post("https://payroll-management-system-server.vercel.app/logout",{},{withCredentials:true})
                     .then(res=>{
                    
                       setLoading(false)

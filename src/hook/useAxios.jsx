@@ -6,7 +6,7 @@ import { Context } from '../provider/AuthProvider';
 
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://payroll-management-system-server.vercel.app',
     withCredentials: true // Correct property name and syntax
   });
 

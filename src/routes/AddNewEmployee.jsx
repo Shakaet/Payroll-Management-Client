@@ -72,7 +72,7 @@ const AddNewEmployee = () => {
             // console.log(usersData)
       
             // Now, send user data to your database
-            await axios.post("http://localhost:3000/addemployees", usersData);
+            await axios.post("https://payroll-management-system-server.vercel.app/addemployees", usersData);
             toast.success("Employee added successfully!");
             link("/dashboard/managenewemployee")
             
@@ -99,7 +99,7 @@ const AddNewEmployee = () => {
 
   return (
     <div className="max-w-lg mx-auto mt-10 p-6 bg-base-200 shadow-xl rounded-2xl">
-      <h2 className="text-2xl font-bold text-center">Add New Employee</h2>
+      <h2 className="text-2xl font-bold text-center text-indigo-400">Add New Employee</h2>
       <form onSubmit={handleSubmit} className="space-y-4 mt-4">
         {/* Name & Email */}
         <div className="grid grid-cols-2 gap-4">

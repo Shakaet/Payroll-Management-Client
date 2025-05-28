@@ -6,7 +6,7 @@ const useTask = () => {
 
 
     const fetchUsers = async () => {
-        const response = await axios.get(`http://localhost:3000/alltask`);
+        const response = await axios.get(`https://payroll-management-system-server.vercel.app/alltask`);
         return response.data;
       };
 

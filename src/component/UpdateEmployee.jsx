@@ -25,7 +25,7 @@ const UpdateEmployee = () => {
   useEffect(() => {
     const fetchEmployee = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/employees/${id}`);
+        const res = await axios.get(`https://payroll-management-system-server.vercel.app/employees/${id}`);
         setFormData(res.data);
       } catch (error) {
         console.error('Error fetching employee data:', error);
@@ -63,7 +63,7 @@ const UpdateEmployee = () => {
         }
       }
 
-      await axios.patch(`http://localhost:3000/updateemployee/${id}`, updatedData);
+      await axios.patch(`https://payroll-management-system-server.vercel.app/updateemployee/${id}`, updatedData);
       toast.success('Employee updated successfully!');
       nav("/dashboard/managenewemployee")
     } catch (error) {

@@ -10,7 +10,7 @@ const MyPayment = () => {
     let {user}= useContext(Context)
 
     const fetchUsers = async () => {
-        const response = await axios.get(`http://localhost:3000/mypaymentHistory/${user?.email}`);
+        const response = await axios.get(`https://payroll-management-system-server.vercel.app/mypaymentHistory/${user?.email}`);
         return response.data;
       };
 
@@ -23,7 +23,7 @@ const MyPayment = () => {
       const handleStatusChange = async (id, newStatus) => {
         console.log(newStatus);
         try {
-          const response = await axios.patch(`http://localhost:3000/myPayment/${id}`, {
+          const response = await axios.patch(`https://payroll-management-system-server.vercel.app/myPayment/${id}`, {
             status: newStatus
           });
 
@@ -74,7 +74,7 @@ const MyPayment = () => {
 
 
 <div className="overflow-x-auto p-4">
-          <h2 className="text-2xl font-bold text-center mb-4 text-white">Transaction Listings</h2>
+          <h2 className="text-2xl font-bold text-center mb-4 text-indigo-400">Transaction Listings</h2>
           <div className="overflow-x-auto rounded-2xl">
             <table className="w-full rounded-2xl">
               <thead>

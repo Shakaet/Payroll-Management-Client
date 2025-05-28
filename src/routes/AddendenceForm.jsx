@@ -22,7 +22,7 @@ const AttendenceForm = () => {
         
             <div className="flex items-center justify-center min-h-screen  p-4">
                 <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
-                    <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Mark Attendance</h2>
+                    <h2 className="text-2xl font-bold text-center text-indigo-400 mb-6">Mark Attendance</h2>
                     
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div>

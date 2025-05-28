@@ -42,11 +42,14 @@ import PaymentHistory from './routes/PaymentHistory.jsx';
 import MyPayment from './routes/MyPayment.jsx';
 import AddReview from './routes/AddReview.jsx';
 import EmployeesReviews from './component/EmployeesReviews.jsx';
+import ErrorPage from './component/ErrorPage.jsx';
+import Loading from './component/loading.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement:<ErrorPage></ErrorPage>,
     element: <MainLayout></MainLayout>,
     children:[
       {
@@ -77,6 +80,7 @@ const router = createBrowserRouter([
   },
   {
     path:"/dashboard",
+    errorElement: <ErrorPage />,
     element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children:[
 
@@ -197,12 +201,7 @@ const RootApp=()=>{
       <AuthProvider>
         <ToastContainer />
         {loading ? (
-          <div className="flex items-center justify-center h-screen">
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-blue-500"></div>
-              <p className="mt-2 text-lg font-semibold text-gray-700">Loading...</p>
-            </div>
-          </div>
+         <Loading></Loading>
         ) : (
           <RouterProvider router={router} />
         )}

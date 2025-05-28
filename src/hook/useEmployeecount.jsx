@@ -3,7 +3,7 @@ import axios from 'axios';
 import React from 'react'
 
 const fetchUsers = async () => {
-    const response = await axios.get(`http://localhost:3000/employeeCount`);
+    const response = await axios.get(`https://payroll-management-system-server.vercel.app/employeeCount`);
     return response.data;
   };
 

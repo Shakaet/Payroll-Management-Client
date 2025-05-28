@@ -12,7 +12,7 @@ export const MyTask = () => {
     // console.log(user)
 
     const fetchUsers = async () => {
-        const response = await axios.get(`http://localhost:3000/mytask/${user?.email}`);
+        const response = await axios.get(`https://payroll-management-system-server.vercel.app/mytask/${user?.email}`);
         return response.data;
       };
 
@@ -25,7 +25,7 @@ export const MyTask = () => {
 
       const handleStatusChange = async (taskId, newStatus) => {
         try {
-          await axios.patch(`http://localhost:3000/mytask/${taskId}`, { status: newStatus });
+          await axios.patch(`https://payroll-management-system-server.vercel.app/mytask/${taskId}`, { status: newStatus });
           refetch()
           
          
@@ -62,7 +62,7 @@ export const MyTask = () => {
 
 
 <div className="overflow-x-auto p-4">
-      <h2 className="text-2xl font-bold text-center mb-4 text-white">Task List</h2>
+      <h2 className="text-2xl font-bold text-center mb-4 text-indigo-400">Task List</h2>
       
       
         <div className="overflow-x-auto rounded-2xl">

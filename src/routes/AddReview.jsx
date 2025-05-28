@@ -38,7 +38,7 @@ let handlechange = (e) => {
     e.preventDefault();
     //  console.log(data);
       try {
-    const response = await axios.post('http://localhost:3000/api/reviews', data); // Change URL as needed
+    const response = await axios.post('https://payroll-management-system-server.vercel.app/api/reviews', data); // Change URL as needed
    Swal.fire({
       icon: 'success',
       title: 'Success!',
@@ -74,7 +74,7 @@ let handlechange = (e) => {
     <div>
       <div className="flex items-center justify-center min-h-screen p-4">
         <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
-          <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+          <h2 className="text-2xl font-bold text-center text-indigo-400 mb-6">
             Employee Review
           </h2>
 

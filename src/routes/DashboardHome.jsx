@@ -18,7 +18,7 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
 const fetchUsers = async () => {
-  const response = await axios.get(`http://localhost:3000/paymentDetails`);
+  const response = await axios.get(`https://payroll-management-system-server.vercel.app/paymentDetails`);
   return response.data;
 };
 
@@ -234,10 +234,10 @@ const DashboardHome = () => {
 
   return (
     <div>
-      <section className="py-2 min-h-screen bg-gray-100 rounded-2xl">
+      <section className="py-2 min-h-screen  rounded-2xl">
         <div className="container mx-auto px-4">
           <motion.h2
-            className="text-3xl font-bold text-gray-800 mb-6"
+            className="text-5xl font-bold text-indigo-400 mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}

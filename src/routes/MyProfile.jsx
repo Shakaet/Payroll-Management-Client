@@ -21,7 +21,7 @@ const MyProfile = () => {
 
 
   return (
-     <div className={`flex items-center justify-center min-h-screen bg-[#111827]  rounded p-6`}>
+     <div className={`flex items-center justify-center min-h-screen   rounded p-6`}>
            
     
       <div className="w-full max-w-2xl mx-auto p-8 rounded-2xl bg-yellow/20 backdrop-blur-lg shadow-[0px_10px_30px_rgba(255,255,255,0.2),0px_-10px_30px_rgba(255,255,255,0.2)]">

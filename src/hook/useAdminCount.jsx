@@ -6,7 +6,7 @@ const useAdminCount = () => {
 
 
     const fetchUsers = async () => {
-        const response = await axios.get(`http://localhost:3000/adminCount`);
+        const response = await axios.get(`https://payroll-management-system-server.vercel.app/adminCount`);
         return response.data;
       };
 

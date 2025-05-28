@@ -1,6 +1,20 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Context } from '../provider/AuthProvider';
+import Marquee from 'react-fast-marquee';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { FaMoneyCheckAlt, FaUsers,FaFileInvoiceDollar, FaUserTie, FaChartPie, FaCalendarCheck, FaShieldAlt } from 'react-icons/fa';
+import { Parallax } from 'react-parallax';
+import bg from "../assets/bg1.jpg"
+
+
+
+
+
+
+
+
 
 const Banner = () => {
   // Hero Banner Auto-Sliding State
@@ -12,19 +26,19 @@ const Banner = () => {
     {
       title: "Streamline Your Payroll Process",
       description: "Effortlessly manage employee salaries, taxes, and benefits with our intuitive platform.",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+      image: "https://i.ibb.co/xKHxFjZh/vecteezy-hand-touching-infographic-cloud-computing-and-technology-10823369.jpg",
       cta: "Get Started Now",
     },
     {
       title: "Secure & Compliant Payroll",
       description: "Ensure compliance with tax laws and keep your data safe with top-tier security.",
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+      image: "https://i.ibb.co/S4vKJRpj/vecteezy-hand-touching-infographic-cloud-computing-and-technology-10811806.jpg",
       cta: "Learn More",
     },
     {
       title: "Real-Time Payroll Insights",
       description: "Access detailed reports and analytics to make informed financial decisions.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+      image: "https://i.ibb.co/prR2nfrF/vecteezy-digital-transformation-technology-strategy-digitization-and-16850486.jpg",
       cta: "Explore Features",
     },
   ];
@@ -35,6 +49,10 @@ const Banner = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, [slides.length]);
+   useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
 
   const slideVariants = {
     initial: { opacity: 0, x: 100 },
@@ -90,14 +108,34 @@ const Banner = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const iconStyles = [
+    { color: '#FF6B6B', label: "Salary Automation" },       // bright red
+    { color: '#4ECDC4', label: "Tax & Compliance" },        // teal
+    { color: '#FFD93D', label: "Employee Management" },     // yellow
+    { color: '#1A535C', label: "Reports & Analytics" },     // dark cyan
+    { color: '#FF9F1C', label: "Attendance Tracking" },     // orange
+    { color: '#6A0572', label: "Secure Access" },           // purple
+  ];
+  
+  const icons = [
+    FaMoneyCheckAlt,
+    FaFileInvoiceDollar,
+    FaUserTie,
+    FaChartPie,
+    FaCalendarCheck,
+    FaShieldAlt,
+  ];
+
   
 
   
 
   return (
-    <div className="min-h-screen bg-gray-50 mt-18">
-      {/* 1. Hero Banner */}
-      <section className="relative w-full h-[500px] overflow-hidden bg-gray-900">
+
+    <div>
+
+   
+     <section className="relative w-full h-[560px] overflow-hidden bg-gray-900">
         <AnimatePresence>
           {slides.map((slide, index) => (
             index === currentSlide && (
@@ -113,7 +151,7 @@ const Banner = () => {
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className="w-full h-full object-cover opacity-50"
+                  className="w-full h-full object-cover opacity-10"
                 />
                 <div className="absolute text-center text-white px-6">
                   <motion.h1
@@ -159,175 +197,40 @@ const Banner = () => {
         </div>
       </section>
 
-      {/* 2. Features Overview */}
-      <section className={`py-16 ${darkmode ? "bg-black text-white":""} `}>
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our Payroll System?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                className="p-6 bg-gray-100 rounded-lg shadow-md text-center hover:shadow-lg transition"
-                variants={cardVariants}
-                initial="hidden"
-                animate="visible"
-                transition={{ delay: index * 0.2 }}
-              >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className={`text-xl font-semibold mb-2 ${darkmode ? "text-black":""}`}>{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. How It Works */}
-      <section className={`py-16  ${darkmode ? "bg-black text-white":""}`}>
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
-          <div className="flex flex-col md:flex-row justify-between gap-8">
-            {steps.map((step, index) => (
-              <motion.div
-                key={index}
-                className="flex-1 text-center"
-                variants={cardVariants}
-                initial="hidden"
-                animate="visible"
-                transition={{ delay: index * 0.2 }}
-              >
-                <div className="text-4xl font-bold text-blue-600 mb-4">{step.step}</div>
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Testimonials */}
-      <section className={`py-16 ${darkmode ?"bg-black text-white":"bg-white"} `}>
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                className="p-6 bg-gray-100 rounded-lg shadow-md text-center"
-                variants={cardVariants}
-                initial="hidden"
-                animate="visible"
-                transition={{ delay: index * 0.2 }}
-              >
-                <p className="text-gray-600 italic mb-4">"{testimonial.quote}"</p>
-                <p className="font-semibold text-gray-400">{testimonial.name}</p>
-                <p className="text-gray-500">{testimonial.company}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Pricing Teaser */}
-      <section className={`py-16  ${darkmode ?"bg-black text-white":"bg-white"}`}>
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Simple, Transparent Pricing</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {plans.map((plan, index) => (
-              <motion.div
-                key={index}
-                className="p-6 bg-white rounded-lg shadow-md text-center hover:shadow-lg transition"
-                variants={cardVariants}
-                initial="hidden"
-                animate="visible"
-                transition={{ delay: index * 0.2 }}
-              >
-                <h3 className="text-2xl font-semibold mb-4 text-gray-600">{plan.name}</h3>
-                <p className="text-3xl font-bold text-blue-600 mb-4">{plan.price}</p>
-                <ul className=" mb-6">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="mb-2 text-gray-600">✔ {feature}</li>
-                  ))}
-                </ul>
-                <a
-                  href="#"
-                  className="inline-block bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition"
-                >
-                  Choose Plan
-                </a>
-              </motion.div>
-            ))}
-          </div>
-          
-        </div>
-      </section>
-
       
-    
+      <Parallax blur={{ min: -15, max: 15 }} bgImage={bg} bgImageAlt="Hero Background" strength={300}>
+        <div className="min-h-screen flex items-center justify-center relative">
+          <div className="absolute inset-0 bg-black/60 z-10" />
+          <div className="relative z-20">
+            
+              <section className=" py-16 px-4 md:px-20 text-white  opacity-110">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl text-center font-bold mb-10 text-indigo-400" data-aos="fade-up">
+          Integrated With Powerful Tools
+        </h2>
+      
+       <Marquee speed={180} gradient={false} pauseOnHover>
+  {icons.map((IconComponent, i) => (
+    <div 
+      key={i} 
+      className="flex flex-col items-center mx-16 cursor-pointer transition-transform duration-300 hover:scale-110"
+      data-aos="zoom-in"
+    >
+      <IconComponent 
+        className="text-8xl drop-shadow-lg" 
+        style={{ color: iconStyles[i].color, filter: 'drop-shadow(0 0 8px ' + iconStyles[i].color + ')' }}
+      />
+      <p className="mt-4 text-xl font-semibold text-white">{iconStyles[i].label}</p>
+    </div>
+  ))}
+</Marquee>
 
-      {/* 7. Trust Badges & Statistics */}
-      <section className={`py-16 ${darkmode ?"bg-black text-white": "bg-gradient-to-r from-blue-600 to-blue-800 text-white"}`}>
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Trusted by Businesses Worldwide</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                className="p-6"
-                variants={cardVariants}
-                initial="hidden"
-                animate="visible"
-                transition={{ delay: index * 0.2 }}
-              >
-                <p className="text-4xl font-bold mb-2">{stat.value}</p>
-                <p className="text-lg">{stat.label}</p>
-              </motion.div>
-            ))}
+      </section>
+
           </div>
         </div>
-      </section>
-
-      {/* 8. Call-to-Action Footer */}
-      <section className={`py-16 ${darkmode ?"bg-black text-white":"bg-blue-600 text-white"} text-center`}>
-        <div className="container mx-auto px-4">
-          <motion.h2
-            className="text-3xl font-bold mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Ready to Simplify Your Payroll?
-          </motion.h2>
-          <motion.p
-            className="text-lg mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            Join thousands of businesses and start managing payroll effortlessly today.
-          </motion.p>
-          <motion.div
-            className="flex justify-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <a
-              href="#"
-              className="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition"
-            >
-              Start Free Trial
-            </a>
-            <a
-              href="#"
-              className="border border-white text-white font-semibold py-3 px-6 rounded-lg hover:bg-white hover:text-blue-600 transition"
-            >
-              Contact Sales
-            </a>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+      </Parallax>
+       </div>
+    
   );
 };
 

@@ -13,7 +13,7 @@ const MyAttendance = () => {
     console.log(user)
 
     const fetchAttendance = async () => {
-        const {data}  = await axios.get(`http://localhost:3000/attendance/${employeeEmail}`);
+        const {data}  = await axios.get(`https://payroll-management-system-server.vercel.app/attendance/${employeeEmail}`);
         return data;
     };
 
@@ -27,7 +27,7 @@ const MyAttendance = () => {
 
     const handleMarkPresent = async () => {
         try {
-            await axios.put(`http://localhost:3000/attendance/${employeeEmail}`, { status: "Present" });
+            await axios.put(`https://payroll-management-system-server.vercel.app/attendance/${employeeEmail}`, { status: "Present" });
             refetch();
             setIsDisabled(true);
             Swal.fire("Success", "You have marked yourself as Present!", "success");
@@ -48,7 +48,7 @@ const MyAttendance = () => {
 
     return (
       <div className="overflow-x-auto p-4">
-      <h2 className="text-2xl font-bold text-center mb-4 text-white">Attendance Status</h2>
+      <h2 className="text-2xl font-bold text-center mb-4 text-indigo-400">Attendance Status</h2>
     
       {isLoading ? (
         <div className="flex items-center justify-center h-screen">

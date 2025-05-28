@@ -3,13 +3,16 @@ import axios from 'axios';
 import React, { useContext } from 'react'
 import { motion } from 'framer-motion';
 import { Context } from '../provider/AuthProvider';
+import { Parallax } from 'react-parallax';
+import bg from "../assets/bg1.jpg"
+
 
 const EmployeesReviews = () => {
 
-   let {darkmode}=useContext(Context)
+  //  let {darkmode}=useContext(Context)
 
     const fetchUsers = async () => {
-        const response = await axios.get(`http://localhost:3000/api/review`);
+        const response = await axios.get(`https://payroll-management-system-server.vercel.app/api/review`);
         return response.data;
       };
 
@@ -44,48 +47,81 @@ const StarRating = ({ rating }) => {
     <div>
 
 
-     <div className={`min-h-screen ${darkmode ?"bg-black text-white":"bg-gradient-to-r from-purple-50 to-blue-50"} py-12 px-6 mt-10`}>
-      <h1 className={`text-4xl font-extrabold text-center mb-10 ${darkmode ? "text-white":"text-gray-900"}`}>Employee Reviews</h1>
-      
-      <div className="max-w-7xl mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {reviews.map(({ title, rating, description, recommend, name, photo }, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.2, duration: 0.5, ease: 'easeOut' }}
-            className="bg-white rounded-xl shadow-lg p-6 flex flex-col"
-          >
-            <div className="flex items-center gap-4 mb-4">
-              <img
-                src={photo}
-                alt={name}
-                className="w-16 h-16 rounded-full object-cover border-2 border-blue-500"
-              />
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900">{name}</h3>
-                <StarRating rating={Number(rating)} />
-              </div>
+      <Parallax blur={{ min: -15, max: 15 }} bgImage={bg} bgImageAlt="Hero Background" strength={300}>
+        <div className="min-h-screen flex items-center justify-center relative">
+          <div className="absolute inset-0 bg-black/60 z-10" />
+          <div className="relative z-20">
+            
+           <section className=" py-20 px-6">
+  <div className="max-w-7xl mx-auto">
+    <motion.h1
+      className="text-4xl md:text-5xl font-extrabold text-center text-indigo-400 mb-16"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      Employee Reviews
+    </motion.h1>
+
+    <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      {reviews.map(({ title, rating, description, recommend, name, photo, position }, idx) => (
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: idx * 0.2, duration: 0.6 }}
+          className="bg-gray-900 rounded-xl shadow-lg hover:shadow-yellow-400/30 transition-transform hover:scale-105 p-6 flex flex-col text-white"
+        >
+          {/* Reviewer Info */}
+          <div className="flex items-center gap-4 mb-4">
+            <img
+              src={photo}
+              alt={name}
+              className="w-16 h-16 rounded-full object-cover border-2 border-yellow-400"
+            />
+            <div>
+              <h3 className="text-xl font-semibold">{name}</h3>
+              <p className="text-yellow-400 text-sm">{position}</p>
+              <StarRating rating={Number(rating)} />
             </div>
+          </div>
 
-            <h2 className="text-lg font-bold text-blue-600 mb-2">{title}</h2>
+          {/* Review Title */}
+          <h2 className="text-lg font-bold text-cyan-400 mb-2">{title}</h2>
 
-            <p className="text-gray-700 flex-grow">{description}</p>
+          {/* Description */}
+          <p className="text-gray-300 flex-grow">{description}</p>
 
-            <p className="mt-4 font-medium text-sm text-gray-900">
-              Recommend:{" "}
-              <span
-                className={`${
-                  recommend === 'Yes' ? 'text-green-600' : 'text-red-600'
-                } font-semibold`}
-              >
-                {recommend}
-              </span>
-            </p>
-          </motion.div>
-        ))}
-      </div>
+          {/* Recommendation */}
+          <p className="mt-4 font-medium text-sm text-gray-200">
+            Recommend:{" "}
+            <span
+              className={`${
+                recommend === 'Yes' ? 'text-green-400' : 'text-red-400'
+              } font-semibold`}
+            >
+              {recommend}
+            </span>
+          </p>
+
+          {/* Optional Social or Contact (placeholder) */}
+          <div className="flex justify-center gap-4 mt-6 text-yellow-300 text-xl">
+            <a href="#" className="hover:text-cyan-400 transition">
+              <i className="fab fa-linkedin"></i>
+            </a>
+            <a href="#" className="hover:text-cyan-400 transition">
+              <i className="fab fa-github"></i>
+            </a>
+          </div>
+        </motion.div>
+      ))}
     </div>
+  </div>
+</section>
+
+          </div>
+        </div>
+      </Parallax>
 
 
     

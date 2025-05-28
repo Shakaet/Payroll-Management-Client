@@ -65,7 +65,7 @@ const LeaveRequest = () => {
       {isOpen && (
         <div className="inset-0 flex items-center justify-center  bg-opacity-50 z-50">
           <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-md">
-            <h3 className="text-lg font-bold mb-4">Leave Request</h3>
+            <h3 className="text-lg font-bold mb-4 text-indigo-400">Leave Request</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="label">

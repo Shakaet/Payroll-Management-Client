@@ -23,7 +23,7 @@ const PaymentHistory = () => {
     <div>
 
 <div className="overflow-x-auto p-4">
-      <h2 className="text-2xl font-bold text-center mb-4 text-white">All Transaction History</h2>
+      <h2 className="text-2xl font-bold text-center mb-4 text-indigo-400">All Transaction History</h2>
       <div className="overflow-x-auto rounded-2xl">
         <table className="table w-full rounded-4xl">
           <thead>
@@ -46,7 +46,7 @@ const PaymentHistory = () => {
                 <td>{new Date(transaction.date).toLocaleDateString()}</td>
                 <td>
                   <span
-                    className={`badge ${
+                    className={`badge p-5 ${
                       transaction.status === 'pending'
                         ? 'badge-warning'
                         : 'badge-success'

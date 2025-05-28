@@ -20,7 +20,7 @@ export const AddTask = () => {
     // console.log(formData)
 
     try {
-        await axios.post("http://localhost:3000/addtask",formData);
+        await axios.post("https://payroll-management-system-server.vercel.app/addtask",formData);
         Swal.fire("Success", "Attendance added successfully", "success");
         nav("/dashboard/managetask")
     } catch (error) {
@@ -38,7 +38,7 @@ export const AddTask = () => {
 
 <div className="flex items-center justify-center min-h-screen p-4">
                     <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-lg">
-                        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Add New Task</h2>
+                        <h2 className="text-2xl font-bold text-center text-indigo-400 mb-6">Add New Task</h2>
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
                                 <label className="label">

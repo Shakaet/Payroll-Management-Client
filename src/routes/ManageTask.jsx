@@ -8,7 +8,7 @@ const ManageTask = () => {
 
 
     const fetchUsers = async () => {
-        const response = await axios.get(`http://localhost:3000/alltask`);
+        const response = await axios.get(`https://payroll-management-system-server.vercel.app/alltask`);
         return response.data;
       };
 
@@ -29,7 +29,7 @@ const ManageTask = () => {
           }).then((result) => {
             if (result.isConfirmed) {
               axios
-                .delete(`http://localhost:3000/alltask/${taskId}`)
+                .delete(`https://payroll-management-system-server.vercel.app/alltask/${taskId}`)
                 .then((response) => {
                   refetch()
                   Swal.fire("Deleted!", "Your item has been deleted.", "success");
@@ -49,7 +49,7 @@ const ManageTask = () => {
     
     <div>
 
-<h3 className="text-2xl font-bold text-white mb-4 text-center">Task List</h3>
+<h3 className="text-2xl font-bold text-indigo-400 mb-4 text-center">Task List</h3>
         <div className="overflow-x-auto rounded-2xl">
           <table className="table w-full border-collapse">
             <thead>

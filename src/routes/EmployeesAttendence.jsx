@@ -4,7 +4,7 @@ import React from 'react'
 import Loading from '../component/loading';
 
 const fetchPosts = async () => {
-    const { data } = await axios.get("http://localhost:3000/allatendence");
+    const { data } = await axios.get("https://payroll-management-system-server.vercel.app/allatendence");
     return data;
   };
 
@@ -23,7 +23,7 @@ const EmployeesAttendence = () => {
     
   return (
     <div className="overflow-x-auto p-4 ">
-      <h2 className="text-2xl font-bold text-center mb-4 text-white">Employee Attendance</h2>
+      <h2 className="text-2xl font-bold text-center mb-4 text-indigo-400">Employee Attendance</h2>
       <div className="overflow-x-auto rounded-2xl">
         <table className="table w-full rounded-4xl">
           <thead>

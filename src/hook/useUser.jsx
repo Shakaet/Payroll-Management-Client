@@ -5,7 +5,7 @@ import React from 'react'
 const useUser = () => {
 
     const fetchUsers = async () => {
-        const response = await axios.get(`http://localhost:3000/userCount`);
+        const response = await axios.get(`https://payroll-management-system-server.vercel.app/userCount`);
         return response.data;
       };
 

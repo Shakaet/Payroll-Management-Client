@@ -41,7 +41,7 @@ const handleDelete = (id) => {
   }).then((result) => {
     if (result.isConfirmed) {
       axios
-        .delete(`http://localhost:3000/allemployee/${id}`)
+        .delete(`https://payroll-management-system-server.vercel.app/allemployee/${id}`)
         .then((response) => {
           refetch()
           Swal.fire("Deleted!", "Your item has been deleted.", "success");
@@ -58,7 +58,7 @@ const handleDelete = (id) => {
     
   return (
     <div className="overflow-x-auto p-4">
-      <h2 className="text-2xl font-bold text-center mb-4 text-white">Employees Listings</h2>
+      <h2 className="text-2xl font-bold text-center mb-4 text-indigo-400">Employees Listings</h2>
       <div className="overflow-x-auto rounded-2xl">
         <table className="table w-full rounded-4xl">
           <thead>

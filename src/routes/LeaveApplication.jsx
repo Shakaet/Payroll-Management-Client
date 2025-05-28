@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 
 const fetchUsers = async () => {
-  const response = await axios.get(`http://localhost:3000/api/leave-request`);
+  const response = await axios.get(`https://payroll-management-system-server.vercel.app/api/leave-request`);
   return response.data;
 };
 
@@ -25,7 +25,7 @@ const LeaveApplication = () => {
   // Handle status update
   const handleStatusChange = async (id, newStatus,email) => {
     try {
-      await axios.patch(`http://localhost:3000/api/data/${id}?email=${email}`, { status: newStatus }); // Replace with your PATCH endpoint
+      await axios.patch(`https://payroll-management-system-server.vercel.app/api/data/${id}?email=${email}`, { status: newStatus }); // Replace with your PATCH endpoint
       
           Swal.fire({
           title: "Updated!",
@@ -45,7 +45,7 @@ const LeaveApplication = () => {
   let handleDelete=async(id)=>{
 
     try {
-      await axios.delete(`http://localhost:3000/api/leave-request/${id}`);
+      await axios.delete(`https://payroll-management-system-server.vercel.app/api/leave-request/${id}`);
       alert("Request Deleted Successfully");
       refetch();
     } catch (error) {
@@ -63,7 +63,7 @@ const LeaveApplication = () => {
     <div>
 
 <div className="overflow-x-auto p-4">
-      <h2 className="text-2xl font-bold text-center mb-4 text-white">Employee's Leave Request</h2>
+      <h2 className="text-2xl font-bold text-center mb-4 text-indigo-400">Employee's Leave Request</h2>
       <div className="overflow-x-auto rounded-2xl">
         <table className="table w-full rounded-2xl">
           <thead>

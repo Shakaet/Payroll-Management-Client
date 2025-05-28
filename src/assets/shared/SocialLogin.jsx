@@ -29,7 +29,7 @@ const SocialLogin = () => {
                 role:"employee"
 
             }
-            axios.post("http://localhost:3000/users",usersData)
+            axios.post("https://payroll-management-system-server.vercel.app/users",usersData)
             .then((res)=>{
                 if(res.data.insertedId){
                     // alert("user added")

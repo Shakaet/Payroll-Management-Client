@@ -16,6 +16,8 @@ import { MdBookmarkAdded } from "react-icons/md";
 import { MdAddTask } from "react-icons/md";
 import { SiManageiq } from "react-icons/si";
 import { RiSecurePaymentLine } from "react-icons/ri";
+import Toogle from '../component/Toogle';
+import bg from "../assets/bg1.jpg"
 
 
 
@@ -28,8 +30,9 @@ const Dashboard = () => {
  
 
 
-  const {  signOuts } = useContext(Context);
+  const {  signOuts,darkmode } = useContext(Context);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+   
   
 
   let nav= useNavigate()
@@ -196,12 +199,14 @@ const Dashboard = () => {
             <IoLogOut className="text-purple-400" />
             <span>Logout</span>
           </button>
+          
+          
         </nav>
       </div>
       
 
       {/* Main Content */}
-      <div className={`flex-1 bg-[#191D26]`}>
+      <div className={`flex-1   `}style={{ backgroundImage: `url(${bg})` }}>
         {/* Mobile Menu Button */}
         <button onClick={toggleSidebar} className="md:hidden mb-4 p-2 bg-gray-900 text-white rounded-md">
           {isSidebarOpen ? "Close Menu" : "Open Menu"}
@@ -214,9 +219,10 @@ const Dashboard = () => {
           
           
 
-        <div className=" w-full p-2 rounded-lg">
+        <div className=" w-full p-2 rounded-lg min-h-screen ">
           <Outlet />
         </div>
+        
         
       </div>
       

@@ -15,7 +15,7 @@ const useEmployee = () => {
 
 
     const fetchUsers = async () => {
-        const response = await axios.get(`http://localhost:3000/users/employee/${user?.email}`);
+        const response = await axios.get(`https://payroll-management-system-server.vercel.app/users/employee/${user?.email}`);
         return response.data?.employee;
       };
 
