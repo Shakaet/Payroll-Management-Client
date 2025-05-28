@@ -77,7 +77,8 @@ To run the project locally, follow these steps:
    npm run dev
 
 2. **Clone the Server repository:**
+   ```bash
    cd ../Payroll-Management-Server
-npm install
-nodemon index.js
+   npm install
+   nodemon index.js
 
